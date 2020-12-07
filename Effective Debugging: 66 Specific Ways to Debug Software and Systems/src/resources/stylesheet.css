@@ -1,0 +1,729 @@
+*
+{
+   outline: none;
+   font-size: 10pt;
+}
+
+#InitWidget
+{
+   max-width: 800px;
+   min-width: 800px;
+}
+
+ButtonLink
+{
+   padding: 2px;
+   padding-left: 0;
+}
+
+CheckBox::indicator:unchecked
+,CheckBox::indicator:unchecked:disabled
+,CheckBox::indicator:checked
+,CheckBox::indicator:checked:disabled
+,CheckBox::indicator:indeterminate
+,QCheckBox::indicator:indeterminate
+{
+   background: transparent;
+}
+
+QComboBox, QLineEdit
+{
+    border-width: 1px;
+    border-style: solid;
+    max-height: 25px;
+    min-height: 25px;
+    padding-left: 10px;
+    outline: none;
+}
+
+QComboBox::drop-down
+{
+     min-width: 20px;
+     max-width: 20px;
+}
+
+ClickableFrame
+{
+    padding: 5px;
+}
+
+Controls > QToolButton
+{
+   max-width: 35px;
+   min-width: 35px;
+   max-height: 35px;
+   min-height: 35px;
+}
+
+Controls > QToolButton:menu-indicator, BranchesWidgetMinimal > QToolButton:menu-indicator,
+Controls > QToolButton:menu-button, #ToolButtonWithMenu:menu-button, #ToolButtonWithMenu:menu-indicator
+{
+    image: none;
+    height: 0px;
+    width: 0px;
+}
+
+
+QPushButton, QToolButton
+{
+    border: 0;
+    padding: 5px;
+    font-size: 10pt;
+}
+
+QPushButton
+{
+    border: 0;
+    max-height: 20px;
+    min-height: 20px;
+}
+
+QPushButton:hover
+{
+    border: 0;
+}
+
+#labelTitle, #commitInfoFrame, #labelDescription
+{
+    padding: 10px;
+}
+
+#labelAuthor
+{
+   font-size: 12pt;
+   padding: 10px;
+   padding-bottom: 1px;
+   border: none;
+   border-style: solid;
+   border-top-width: 1px;
+}
+
+#labelDateTime
+{
+   font-size: 9pt;
+   padding: 10px;
+   padding-top: 1px;
+}
+
+#labelSha
+{
+    padding: 8px 10px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+}
+
+CommitDiffWidget
+{
+   max-height: 350px;
+   min-height: 350px;
+}
+
+CommitChangesWidget > QListWidget, BranchesWidget > QListWidget, BlameWidget > QTreeView, MergeWidget > QListWidget
+{
+   border: 0;
+   outline: 0;
+ }
+
+QListWidget::item, BlameWidget > QTreeView::item
+{
+   padding-left: 7px;
+   padding-right: 7px;
+   border-left: 0;
+   border-bottom: 0;
+   margin: 0;
+   min-height: 25px;
+   max-height: 25px;
+}
+
+CommitChangesWidget > QListWidget::item, MergeWidget > QListWidget::item
+{
+   padding: 0;
+}
+
+#amendFrame
+{
+    border: none;
+}
+
+QTreeWidget::item
+{
+    min-height: 25px;
+    max-height: 25px;
+}
+
+#FullBranchesWidget
+{
+    min-width: 400px;
+    max-width: 400px;
+}
+
+#tagsFrame
+{
+    padding: 0;
+}
+
+QListWidget::item:focus, BlameWidget > QTreeView::item:focus
+{
+   border: 0;
+}
+
+CommitChangesWidget > #pbCommit, CommitChangesWidget > #pbCancelAmend
+{
+    max-height: 30px;
+    min-height: 30px;
+}
+
+CommitChangesWidget > #pbCancelAmend
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+CommitInfoWidget, CommitChangesWidget
+{
+    max-width: 300px;
+    min-width: 300px;
+}
+
+CommitChangesWidget > QListWidget, MergeWidget > QListWidget
+{
+    border-width: 1px;
+    border-style: solid;
+}
+
+/** START RepositoryContextMenu **/
+QMenu
+{
+    menu-scrollable: 1;
+}
+
+QMenu, QToolTip
+{
+    border-width: 1px;
+    border-style: solid;
+    margin: 0;
+}
+
+QMenu::item
+{
+   border: 0;
+   min-height: 25px;
+   max-height: 25px;
+   padding-left: 15px;
+   padding-right: 15px;
+}
+
+QMenu::icon
+{
+   padding-left: 15px;
+}
+
+QMenu::separator
+{
+   border: 0;
+   height: 1px;
+}
+
+/**  END  RepositoryContextMenu **/
+
+FullDiffWidget
+{
+    border: none;
+}
+
+FullDiffWidget > QTextEdit, #leCommitTitle, #teDescription, #leAuthorName, #leAuthorEmail
+{
+    border-width: 1px;
+    border-style: solid;
+}
+
+#leAuthorName
+{
+    max-height: 30px;
+    min-height: 30px;
+    padding-left: 10px;
+}
+
+#leAuthorEmail
+{
+    border-top: 0;
+    max-height: 30px;
+    min-height: 30px;
+    padding-left: 10px;
+}
+
+QLabel#lCounter
+{
+    border-width: 1px;
+    border-style: solid;
+    border-left-width: 0;
+    font-family: Ubuntu Mono;
+    max-width: 29px;
+    min-width: 29px;
+    qproperty-alignment: AlignCenter;
+}
+
+CommitChangesWidget > QFrame#stagedFiles, CommitChangesWidget > QFrame#unstagedFiles, CommitChangesWidget > QFrame#untrackedFiles
+{
+    max-height: 30px;
+    min-height: 30px;
+}
+
+FileDiffView
+{
+    font-family: "Ubuntu Mono";
+}
+
+#leCommitTitle
+{
+    border-right: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    max-height: 30px;
+    min-height: 30px;
+    padding-left: 10px;
+}
+
+#teDescription, #outputTerminal
+{
+    border-top: none;
+    padding-left: 8px;
+}
+
+/** START QHeaderView **/
+
+QHeaderView:section
+{
+    border: 0;
+    border-right-width: 1px;
+    border-right-style: solid;
+    padding: 5px 15px;
+}
+
+/**  END  QHeaderView **/
+
+BranchDlg > QLineEdit, HistoryWidget > QLineEdit
+{
+    border-width: 1px;
+    border-style: solid;
+    max-height: 25px;
+    min-height: 25px;
+    padding-left: 10px;
+}
+
+/** QPinnableTabWidget **/
+#openNewRepo
+{
+   max-height: 25px; /** 25px for the button + 1px to compensate the border of the tabs in the QPinnableTabWidget **/
+   min-height: 25px;
+   max-width: 31px;
+   min-width: 31px;
+   padding-left: 10px;
+}
+
+QTabWidget::pane
+{
+}
+
+QTabWidget > QTabBar::tab
+{
+   padding: 5px;
+   padding-left: 15px;
+   max-height: 25px;
+   min-height: 25px;
+}
+
+QTabWidget > QTabBar::tab:!selected
+{
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+QTabWidget > QTabBar::close-button
+{
+    image: url(:/icons/close);
+}
+
+QTabWidget > QTabBar::close-button:hover
+{
+    image: url(:/icons/close_hover);
+}
+
+QTabWidget > QTabBar::close-button:pressed
+{
+  image: url(":/icons/close_press");
+}
+
+QToolTip
+{
+   padding: 5px;
+   border-width: 1px;
+   border-style: solid;
+}
+
+QFrame#separator
+{
+   min-height: 1px;
+   max-height: 1px;
+}
+
+QFrame#separator2px
+{
+   min-height: 2px;
+   max-height: 2px;
+}
+
+#orangeHSeparator
+{
+   min-height: 1px;
+   max-height: 1px;
+}
+
+#orangeSeparator
+{
+   min-width: 1px;
+   max-width: 1px;
+}
+
+QLabel#subtitle
+{
+    font-size: 16pt;
+}
+
+QLabel#title
+{
+    font-size: 24pt;
+}
+
+QPushButton#bigButton
+{
+    max-height: 30px;
+    min-height: 30px;
+    max-width: 200px;
+    min-width: 200px;
+    border-width: 0;
+}
+
+QFrame#tabWidget > QPushButton, QFrame#tabWidget > QPushButton[selected=false]
+{
+    max-width: 125px;
+    min-width: 125px;
+    max-height: 30px;
+    min-height: 30px;
+    border-right: 0;
+}
+
+QDialog > QPushButton
+{
+    padding: 5px;
+}
+
+QDialog > QLineEdit
+{
+    border-width: 1px;
+    border-style: solid;
+    min-height: 25px;
+    max-height: 25px;
+    padding-left: 10px;
+}
+
+QScrollBar:vertical
+{
+    border: 0;
+    width: 16px;
+    margin: 16px 0;
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+
+QScrollBar:horizontal
+{
+    border: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+    height: 16px;
+    margin: 0 16px;
+}
+
+QScrollBar::handle:vertical
+{
+    width: 14px;
+    min-height: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-right: 0;
+    border-left: 0;
+}
+
+QScrollBar::handle:horizontal
+{
+    height: 14px;
+    min-width: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+QScrollBar::add-line:vertical
+{
+    subcontrol-position: bottom center;
+    subcontrol-origin: margin;
+    border-width: 1px;
+    border-style: solid;
+    border-right: 0;
+    border-bottom: 0;
+    height: 15px;
+    width: 15px;
+    image: url(:/icons/down-arrow);
+}
+
+QScrollBar::add-line:horizontal
+{
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+    border-width: 1px;
+    border-style: solid;
+    border-right: 0;
+    border-bottom: 0;
+    height: 15px;
+    width: 15px;
+    image: url(:/icons/right-arrow);
+}
+
+QScrollBar::sub-line:vertical
+{
+    subcontrol-position: top center;
+    subcontrol-origin: margin;
+    border-width: 1px;
+    border-style: solid;
+    border-right: 0;
+    border-top: 0;
+    height: 15px;
+    width: 15px;
+    image: url(:/icons/up-arrow);
+}
+
+QScrollBar::sub-line:horizontal
+{
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+    border-width: 1px;
+    border-style: solid;
+    border-left: 0;
+    border-bottom: 0;
+    height: 15px;
+    width: 15px;
+    image: url(:/icons/left-arrow);
+}
+
+QScrollArea
+{
+    border: 0;
+}
+
+QLabel#normalLabel
+{
+    padding: 2px;
+    padding-left: 5px;
+    max-height: 22px;
+    min-height: 22px;
+}
+
+QLabel#numberLabel
+{
+    padding: 2px;
+    border: 0;
+    border-right-width: 1px;
+    border-right-style: solid;
+    max-height: 22px;
+    min-height: 22px;
+}
+
+QLabel#authorFirstOfItsName, QLabel#authorPrimusInterPares
+{
+    padding: 2px;
+    border: 0;
+    padding-right: 15px;
+    max-height: 21px;
+    min-height: 21px;
+}
+
+ClickableFrame#firstOfItsName, ClickableFrame#primusInterPares
+{
+    padding: 2px;
+    border: 0;
+    max-height: 21px;
+    min-height: 21px;
+}
+
+QLabel#authorFirstOfItsName, ClickableFrame#firstOfItsName
+{
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+QProgressBar
+{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 2px;
+    width: 20px;
+}
+
+QProgressBar::chunk
+{
+    width: 18px;
+}
+
+DiffButton
+{
+   max-height: 30px;
+   min-height: 30px;
+}
+
+DiffWidget > QScrollArea
+{
+   min-width: 375px;
+   max-width: 375px;
+}
+
+#mergeFrame
+{
+   max-width: 450px;
+   min-width: 450px;
+}
+
+#MergeWarningButton, QPushButton#warnButton, QPushButton#Abort, QPushButton#Merge
+{
+   border-width: 1px;
+}
+
+QPushButton#Abort, QPushButton#Merge
+{
+   max-height: 30px;
+   min-height: 30px;
+   max-width: 125px;
+   min-width: 125px;
+}
+
+#FilesListTitle
+{
+   max-height: 30px;
+   min-height: 30px;
+   padding-left: 10px;
+}
+
+MergeWidget > #leCommitTitle
+{
+   border-right: 1px;
+}
+
+PullDlg
+{
+   max-height: 150px;
+   min-height: 150px;
+   max-width: 500px;
+   min-width: 500px;
+}
+
+GeneralConfigPage > QLabel#configLabel
+{
+    qproperty-alignment: AlignCenter;
+}
+
+#pbCherryPick
+{
+   max-height: 20px;
+   min-height: 20px;
+   padding: 2px 5px;
+}
+
+QMessageBox
+{
+   max-width: 400px;
+   min-width: 400px;
+   max-height: 300px;
+   min-height: 300px;
+}
+
+#MinimizeBtn
+{
+    max-height: 30px;
+    min-height: 30px;
+    max-width: 20px;
+    min-width: 20px;
+    padding: 0;
+}
+
+#MinimizeBtn:hover
+{
+    max-height: 30px;
+    min-height: 30px;
+    max-width: 20px;
+    min-width: 20px;
+    padding: 0;
+}
+
+QSpinBox
+{
+    border-style: solid;
+    border-width: 1px;
+    max-height: 25px;
+    min-height: 25px;
+}
+
+QSpinBox::up-button
+{
+    width: 16px;
+    border: 0px;
+}
+
+QSpinBox::up-arrow {
+    image: url(:/icons/arrow_up);
+    width: 14px;
+    height: 7px;
+}
+
+QSpinBox::down-button
+{
+    width: 16px;
+    border: 0px;
+}
+
+QSpinBox::down-arrow
+{
+    image: url(:/icons/arrow_down);
+    width: 14px;
+    height: 7px;
+}
+
+QDialog > QPushButton
+{
+   max-height: 20px;
+   min-height: 20px;
+   min-width: 75px;
+}
+
+#ToolButtonWithMenu
+{
+   max-width: 45px;
+   min-width: 45px;
+   max-height: 10px;
+   min-height: 10px;
+   padding: 0;
+}
+
+#ToolButtonAboveMenu
+{
+   max-width: 35px;
+   min-width: 35px;
+   max-height: 25px;
+   min-height: 25px;
+   padding-bottom: 0;
+   padding-top: 10px;
+}
+
