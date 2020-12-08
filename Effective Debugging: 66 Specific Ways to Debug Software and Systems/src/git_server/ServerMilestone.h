@@ -25,6 +25,9 @@
 
 #include <QString>
 
+/**
+ * @brief The LogLevel enum class defines the level of the log message.
+ */
 struct ServerMilestone
 {
    int id;

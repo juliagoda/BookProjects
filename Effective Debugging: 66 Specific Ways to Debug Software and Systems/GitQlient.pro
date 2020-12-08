@@ -1,9 +1,7 @@
 #General stuff
 CONFIG += qt warn_on c++ 17 c++1z
 
-greaterThan(QT_MINOR_VERSION, 12) {
-!msvc:QMAKE_CXXFLAGS += -Werror
-}
+
 
 TARGET = GitQlient
 QT += widgets core network svg

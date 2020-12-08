@@ -30,7 +30,11 @@
 
 class QJsonDocument;
 class QNetworkReply;
-struct ServerIssue;
+
+namespace GitServer
+{
+
+struct Issue;
 
 class GitHubRestApi final : public IRestApi
 {
@@ -41,25 +45,46 @@ public:
                           QObject *parent = nullptr);
 
    void testConnection() override;
-   void createIssue(const ServerIssue &issue) override;
-   void updateIssue(int issueNumber, const ServerIssue &issue) override;
-   void createPullRequest(const ServerPullRequest &pullRequest) override;
+   void createIssue(const Issue &issue) override;
+   void updateIssue(int issueNumber, const Issue &issue) override;
+   void updatePullRequest(int number, const PullRequest &pr) override;
+   void createPullRequest(const PullRequest &pullRequest) override;
    void requestLabels() override;
    void requestMilestones() override;
-   void requestPullRequestsState() override;
+   void requestIssues(int page = -1) override;
+   void requestPullRequests(int page = -1) override;
    void mergePullRequest(int number, const QByteArray &data) override;
+   void requestComments(int issueNumber) override;
+   void requestReviews(int prNumber) override;
+   void requestCommitsFromPR(int prNumber) override;
+   void addIssueComment(const Issue &issue, const QString &text) override;
+   void addPrReview(int prNumber, const QString &body, const QString &event) override;
+   void addPrCodeReview(int prNumber, const QString &body, const QString &path, int pos, const QString &sha) override;
+   void replyCodeReview(int prNumber, int commentId, const QString &msgBody) override;
 
 private:
-   QMap<QString, ServerPullRequest> mPulls;
    QString mRepoEndpoint;
-   int mPrRequested = 0;
+   QByteArray mAuthString;
 
    QNetworkRequest createRequest(const QString &page) const override;
    void onLabelsReceived();
    void onMilestonesReceived();
    void onIssueCreated();
    void onPullRequestCreated();
-   void processPullRequets();
-   void onPullRequestStatusReceived();
    void onPullRequestMerged();
+   void onPullRequestReceived();
+   void onPullRequestStatusReceived(PullRequest pr);
+   void onIssuesReceived();
+   void onCommentsReceived(int issueNumber);
+   void onPullRequestDetailsReceived(PullRequest pr);
+   void onReviewsReceived(int prNumber);
+
+   void requestReviewComments(int prNumber);
+   void onReviewCommentsReceived(int prNumber);
+   void onCommitsReceived(int prNumber);
+
+   Issue issueFromJson(const QJsonObject &json) const;
+   PullRequest prFromJson(const QJsonObject &json) const;
 };
+
+}

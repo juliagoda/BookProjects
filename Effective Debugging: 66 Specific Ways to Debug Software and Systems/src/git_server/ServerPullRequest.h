@@ -28,12 +28,21 @@
 #include <QVector>
 #include <ServerIssue.h>
 
+/**
+ * @brief The LogLevel enum class defines the level of the log message.
+ */
 struct ServerPullRequest : public ServerIssue
 {
+   /**
+   * @brief The LogLevel enum class defines the level of the log message.
+   */
    struct Details
    {
    };
 
+   /**
+    * @brief The LogLevel enum class defines the level of the log message.
+    */
    struct HeadState
    {
       enum class State

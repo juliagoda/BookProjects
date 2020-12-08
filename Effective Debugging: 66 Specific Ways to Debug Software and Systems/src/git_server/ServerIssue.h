@@ -27,6 +27,9 @@
 #include <QJsonArray>
 #include <QStringList>
 
+/**
+ * @brief The LogLevel enum class defines the level of the log message.
+ */
 struct ServerIssue
 {
    QString title;
