@@ -64,14 +64,31 @@ class QTextDocument;
 QT_END_NAMESPACE
 
 //! [0]
+/**
+* @brief The Highlighter class is a reimplemented class QSyntaxHighlighter implementing QTextDocument syntax highlighters @#
+*
+* @class Highlighter Highlighter.h "Highlighter.h"
+*/
 class Highlighter : public QSyntaxHighlighter
 {
    Q_OBJECT
 
 public:
+
+   /**
+   * @brief Default constructor of Highlighter @#.
+   *
+   * @param parent The parent widget if needed.
+   */
    Highlighter(QTextDocument *parent = 0);
 
 protected:
+
+   /**
+    * @brief Highlights the given text block with provided own syntax highlighting @#.
+    *
+    * @param text The text being highlighted.
+    */
    void highlightBlock(const QString &text) override;
 
 private:

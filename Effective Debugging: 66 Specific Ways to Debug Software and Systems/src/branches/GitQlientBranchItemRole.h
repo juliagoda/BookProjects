@@ -27,6 +27,10 @@
 
 namespace GitQlient
 {
+
+/**
+ * @brief GitQlientBranchItemRole contains information about local branches. @#
+ */
 enum GitQlientBranchItemRole
 {
    IsCurrentBranchRole = Qt::UserRole,
