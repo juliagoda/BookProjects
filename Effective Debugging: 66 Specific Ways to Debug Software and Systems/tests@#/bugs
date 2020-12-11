@@ -1,0 +1,81 @@
+
+Title: Closing a project on a main program window causes crash.
+Severity: Minor (all steps performed after this, but before closing the program are correctly evaluated and remembered by the program)
+Priority: High
+Affected stakeholders: Everyone
+
+**Describe the bug**
+Closing a project from a different level than the project tab causes the crash of the program.
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Open application
+2. Open any path of git project
+3. Go back to main page
+4. Click on right button of mouse
+5. If there is as first written:
+a) "Unpin" 
+  1) Click on it
+  2) Click on it again after the text is changed to "Pin"
+b) "Pin"
+  1) Click on it
+6. Click on right button of mouse again
+7. Click on "Close"
+
+**Expected behavior**
+The right-click menu for a project should not be initialized from the main page.
+
+**Screenshots**
+
+
+**Desktop (please complete the following information):**
+ - OS: Arch Linux
+ - Release version or SHA: v1.3.0-beta
+ - If manually compiled, compiler version: QMake version 3.1 (Using Qt version 5.15.2)
+
+
+**Additional context**
+This menu appears even after deleting all active tabs.
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Title: Program's exit after pinning a project from main program window causes crash.
+Severity: Minor (all steps performed after this, but before closing the program are correctly evaluated and remembered by the program)
+Priority: High
+Affected stakeholders: Everyone
+
+**Describe the bug**
+Closing the program window after trying to pin the project from the main window will cause crash.
+
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Open application
+2. Open any path of git project
+3. Go back to main page
+4. Click on right button of mouse
+5. If there is as first written:
+a) "Unpin" 
+  1) Click on it
+  2) Click on it again after the text is changed to "Pin"
+b) "Pin"
+  1) Click on it
+6. Close the application window (not from menu)
+
+**Expected behavior**
+Not only should the project be connected and disconnected in project tab, but also the program should close properly.
+
+**Screenshots**
+
+
+**Desktop (please complete the following information):**
+ - OS: Arch Linux
+ - Release version or SHA: v1.3.0-beta
+ - If manually compiled, compiler version: QMake version 3.1 (Using Qt version 5.15.2)
+
+
+**Additional context**
+Uninning triggers a reaction that does not lead to an error in the program. Only the pinning operation causes an error. 
+Sometimes a new tab may appear in the upper left corner without content but with an option to close
+
