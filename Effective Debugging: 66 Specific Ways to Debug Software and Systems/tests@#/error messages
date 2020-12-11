@@ -13,3 +13,7 @@ cc1plus: all warnings being treated as errors
 
 
 looking on the web according to the content of the message I came across here, where it turns out that it is enough to remove the compilation restriction flag - [link](https://aur.archlinux.org/packages/gitqlient/).
+
+
+Problem solving:
+Deleting the fragment containing the -Werror flag from the .pro file
