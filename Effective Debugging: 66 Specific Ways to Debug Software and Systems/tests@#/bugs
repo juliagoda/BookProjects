@@ -8,7 +8,7 @@ Affected stakeholders: Everyone
 Closing a project from a different level than the project tab causes the crash of the program.
 
 **To Reproduce**
-Steps to reproduce the behavior:
+Steps to reproduce the behavior (from bottom to top because of crash type):
 1. Open application
 2. Open any path of git project
 3. Go back to main page
@@ -50,7 +50,7 @@ Affected stakeholders: Everyone
 Closing the program window after trying to pin the project from the main window will cause crash.
 
 **To Reproduce**
-Steps to reproduce the behavior:
+Steps to reproduce the behavior (from bottom to top because of crash type):
 1. Open application
 2. Open any path of git project
 3. Go back to main page
