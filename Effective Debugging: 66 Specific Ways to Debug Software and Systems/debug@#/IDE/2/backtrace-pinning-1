@@ -1,0 +1,322 @@
+
+Thread 15 (Thread 0x7fffc4ff9640 (LWP 34064) "QThread"):
+#0  0x00007ffff667d46f in poll () from /usr/lib/libc.so.6
+No symbol table info available.
+#1  0x00007ffff58e775f in ?? () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#2  0x00007ffff5892121 in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#3  0x00007ffff6e466e1 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#4  0x00007ffff6dec3fc in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#5  0x00007ffff6c04d22 in QThread::exec() () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#6  0x00007ffff6c05f0f in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#7  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#8  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 13 (Thread 0x7fffc5ffb640 (LWP 34060) "QFileInfoGather"):
+#0  0x00007ffff6a9d6a2 in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#1  0x00007ffff6c0c0d4 in QWaitCondition::wait(QMutex*, QDeadlineTimer) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#2  0x00007ffff7c647b3 in ?? () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#3  0x00007ffff6c05f0f in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#4  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#5  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 12 (Thread 0x7fffc67fc640 (LWP 34059) "QNetworkAccessM"):
+#0  0x00007ffff667d46f in poll () from /usr/lib/libc.so.6
+No symbol table info available.
+#1  0x00007ffff58e775f in ?? () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#2  0x00007ffff5892121 in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#3  0x00007ffff6e466e1 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#4  0x00007ffff6dec3fc in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#5  0x00007ffff6c04d22 in QThread::exec() () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#6  0x00007ffff6c05f0f in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#7  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#8  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 11 (Thread 0x7fffc6ffd640 (LWP 34057) "Qt bearer threa"):
+#0  0x00007ffff667d46f in poll () from /usr/lib/libc.so.6
+No symbol table info available.
+#1  0x00007ffff58e775f in ?? () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#2  0x00007ffff5892121 in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#3  0x00007ffff6e466e1 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#4  0x00007ffff6dec3fc in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#5  0x00007ffff6c04d22 in QThread::exec() () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#6  0x00007ffff6c05f0f in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#7  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#8  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 10 (Thread 0x7fffc77fe640 (LWP 34017) "QLogger::QLogge"):
+#0  0x00007ffff6a9d6a2 in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#1  0x00007ffff6c0c0d4 in QWaitCondition::wait(QMutex*, QDeadlineTimer) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#2  0x00000000005b76f4 in QLogger::QLoggerWriter::run (this=0xb09800) at ../Effective Debugging: 66 Specific Ways to Debug Software and Systems/QLogger/QLoggerWriter.cpp:112
+        copy = {d = 0xa68660}
+#3  0x00007ffff6c05f0f in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#4  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#5  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 9 (Thread 0x7fffc7fff640 (LWP 34016) "QLogger::QLogge"):
+#0  0x00007ffff6a9d6a2 in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#1  0x00007ffff6c0c0d4 in QWaitCondition::wait(QMutex*, QDeadlineTimer) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#2  0x00000000005b76f4 in QLogger::QLoggerWriter::run (this=0xa343c0) at ../Effective Debugging: 66 Specific Ways to Debug Software and Systems/QLogger/QLoggerWriter.cpp:112
+        copy = {d = 0x101b350}
+#3  0x00007ffff6c05f0f in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#4  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#5  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 8 (Thread 0x7fffdcd9e640 (LWP 34015) "GitQlie:disk$3"):
+#0  0x00007ffff6a9d6a2 in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#1  0x00007fffe96faeac in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#2  0x00007fffe96fada8 in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#3  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#4  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 7 (Thread 0x7fffdd59f640 (LWP 34014) "GitQlie:disk$2"):
+#0  0x00007ffff6a9d6a2 in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#1  0x00007fffe96faeac in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#2  0x00007fffe96fada8 in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#3  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#4  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 6 (Thread 0x7fffddda0640 (LWP 34013) "GitQlie:disk$1"):
+#0  0x00007ffff6a9d6a2 in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#1  0x00007fffe96faeac in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#2  0x00007fffe96fada8 in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#3  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#4  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 5 (Thread 0x7fffde5a1640 (LWP 34012) "GitQlie:disk$0"):
+#0  0x00007ffff6a9d6a2 in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#1  0x00007fffe96faeac in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#2  0x00007fffe96fada8 in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#3  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#4  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 4 (Thread 0x7fffe8f5d640 (LWP 34011) "GitQlient:rcs0"):
+#0  0x00007ffff6a9d6a2 in pthread_cond_wait@@GLIBC_2.3.2 () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#1  0x00007fffe96faeac in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#2  0x00007fffe96fada8 in ?? () from /usr/lib/dri/r600_dri.so
+No symbol table info available.
+#3  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#4  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 3 (Thread 0x7fffebfff640 (LWP 34010) "QDBusConnection"):
+#0  0x00007ffff667d46f in poll () from /usr/lib/libc.so.6
+No symbol table info available.
+#1  0x00007ffff58e775f in ?? () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#2  0x00007ffff5892121 in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#3  0x00007ffff6e466e1 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#4  0x00007ffff6dec3fc in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#5  0x00007ffff6c04d22 in QThread::exec() () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#6  0x00007ffff3073098 in ?? () from /usr/lib/libQt5DBus.so.5
+No symbol table info available.
+#7  0x00007ffff6c05f0f in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#8  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#9  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 2 (Thread 0x7ffff2eac640 (LWP 34009) "QXcbEventQueue"):
+#0  0x00007ffff667d46f in poll () from /usr/lib/libc.so.6
+No symbol table info available.
+#1  0x00007ffff367163b in ?? () from /usr/lib/libxcb.so.1
+No symbol table info available.
+#2  0x00007ffff367337b in xcb_wait_for_event () from /usr/lib/libxcb.so.1
+No symbol table info available.
+#3  0x00007ffff318b131 in ?? () from /usr/lib/libQt5XcbQpa.so.5
+No symbol table info available.
+#4  0x00007ffff6c05f0f in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#5  0x00007ffff6a973e9 in start_thread () from /usr/lib/libpthread.so.0
+No symbol table info available.
+#6  0x00007ffff6688293 in clone () from /usr/lib/libc.so.6
+No symbol table info available.
+
+Thread 1 (Thread 0x7ffff3653340 (LWP 34005) "GitQlient"):
+#0  0x00000000004415d0 in QString::QString (this=0x7fffffffc710, other=...) at /usr/include/qt/QtCore/qstring.h:1093
+No locals.
+#1  0x000000000046e171 in GitQlientRepo::currentDir (this=0x0) at ../Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/big_widgets/GitQlientRepo.h:118
+No locals.
+#2  0x000000000046d7d0 in GitQlient::closeTab (this=0x7fffffffe550, tabIndex=-1) at ../Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/big_widgets/GitQlient.cpp:247
+        repoToRemove = 0x0
+#3  0x000000000046f7a1 in QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<int>, void, void (GitQlient::*)(int)>::call (f=(void (GitQlient::*)(GitQlient * const, int)) 0x46d70a <GitQlient::closeTab(int)>, o=0x7fffffffe550, arg=0x7fffffffc910) at /usr/include/qt/QtCore/qobjectdefs_impl.h:152
+No locals.
+#4  0x000000000046f435 in QtPrivate::FunctionPointer<void (GitQlient::*)(int)>::call<QtPrivate::List<int>, void> (f=(void (GitQlient::*)(GitQlient * const, int)) 0x46d70a <GitQlient::closeTab(int)>, o=0x7fffffffe550, arg=0x7fffffffc910) at /usr/include/qt/QtCore/qobjectdefs_impl.h:185
+No locals.
+#5  0x000000000046edb7 in QtPrivate::QSlotObject<void (GitQlient::*)(int), QtPrivate::List<int>, void>::impl (which=1, this_=0xcc1370, r=0x7fffffffe550, a=0x7fffffffc910, ret=0x0) at /usr/include/qt/QtCore/qobjectdefs_impl.h:418
+No locals.
+#6  0x00007ffff6e24dd6 in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#7  0x00007ffff7c0bb42 in QTabWidget::tabCloseRequested(int) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#8  0x000000000058c5c6 in operator() (__closure=0xf7e5f0) at ../Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp:197
+        this = 0x9b97f0
+#9  0x000000000058d157 in QtPrivate::FunctorCall<QtPrivate::IndexesList<>, QtPrivate::List<>, void, QPinnableTabWidget::showContextMenu()::<lambda()> >::call(struct {...} &, void **) (f=..., arg=0x7fffffffcb00) at /usr/include/qt/QtCore/qobjectdefs_impl.h:146
+No locals.
+#10 0x000000000058d0ff in QtPrivate::Functor<QPinnableTabWidget::showContextMenu()::<lambda()>, 0>::call<QtPrivate::List<>, void>(struct {...} &, void *, void **) (f=..., arg=0x7fffffffcb00) at /usr/include/qt/QtCore/qobjectdefs_impl.h:256
+No locals.
+#11 0x000000000058d044 in QtPrivate::QFunctorSlotObject<QPinnableTabWidget::showContextMenu()::<lambda()>, 0, QtPrivate::List<>, void>::impl(int, QtPrivate::QSlotObjectBase *, QObject *, void **, bool *) (which=1, this_=0xf7e5e0, r=0x9b97f0, a=0x7fffffffcb00, ret=0x0) at /usr/include/qt/QtCore/qobjectdefs_impl.h:443
+No locals.
+#12 0x00007ffff6e24dd6 in ?? () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#13 0x00007ffff7a30f63 in QAction::triggered(bool) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#14 0x00007ffff7a33845 in QAction::activate(QAction::ActionEvent) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#15 0x00007ffff7bb53ab in ?? () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#16 0x00007ffff7bbcae2 in ?? () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#17 0x00007ffff7a78b0e in QWidget::event(QEvent*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#18 0x00007ffff7a37752 in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#19 0x00007ffff7a3e87b in QApplication::notify(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#20 0x00007ffff6deda7a in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#21 0x00007ffff7a3d87e in QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool, bool) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#22 0x00007ffff7a917cf in ?? () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#23 0x00007ffff7a9463f in ?? () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#24 0x00007ffff7a37752 in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#25 0x00007ffff6deda7a in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#26 0x00007ffff7349594 in QGuiApplicationPrivate::processMouseEvent(QWindowSystemInterfacePrivate::MouseEvent*) () from /usr/lib/libQt5Gui.so.5
+No symbol table info available.
+#27 0x00007ffff731ebb5 in QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Gui.so.5
+No symbol table info available.
+#28 0x00007ffff318c16c in ?? () from /usr/lib/libQt5XcbQpa.so.5
+No symbol table info available.
+#29 0x00007ffff5893914 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#30 0x00007ffff58e77d1 in ?? () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#31 0x00007ffff5892121 in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#32 0x00007ffff6e466e1 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#33 0x00007ffff6dec3fc in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#34 0x00007ffff7bba481 in ?? () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#35 0x00007ffff7bba5bf in QMenu::exec(QPoint const&, QAction*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#36 0x000000000058c86e in QPinnableTabWidget::showContextMenu (this=0x9b97f0) at ../Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp:199
+        actions = 0x14b47d0
+#37 0x000000000058c56c in QPinnableTabWidget::mouseReleaseEvent (this=0x9b97f0, event=0x7fffffffdb60) at ../Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp:171
+No locals.
+#38 0x00007ffff7a78b0e in QWidget::event(QEvent*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#39 0x00007ffff7a37752 in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#40 0x00007ffff7a3e87b in QApplication::notify(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#41 0x00007ffff6deda7a in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#42 0x00007ffff7a3d87e in QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool, bool) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#43 0x00007ffff7a91249 in ?? () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#44 0x00007ffff7a9463f in ?? () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#45 0x00007ffff7a37752 in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+No symbol table info available.
+#46 0x00007ffff6deda7a in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#47 0x00007ffff7349594 in QGuiApplicationPrivate::processMouseEvent(QWindowSystemInterfacePrivate::MouseEvent*) () from /usr/lib/libQt5Gui.so.5
+No symbol table info available.
+#48 0x00007ffff731ebb5 in QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Gui.so.5
+No symbol table info available.
+#49 0x00007ffff318c16c in ?? () from /usr/lib/libQt5XcbQpa.so.5
+No symbol table info available.
+#50 0x00007ffff5893914 in g_main_context_dispatch () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#51 0x00007ffff58e77d1 in ?? () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#52 0x00007ffff5892121 in g_main_context_iteration () from /usr/lib/libglib-2.0.so.0
+No symbol table info available.
+#53 0x00007ffff6e466e1 in QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#54 0x00007ffff6dec3fc in QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#55 0x00007ffff6df4894 in QCoreApplication::exec() () from /usr/lib/libQt5Core.so.5
+No symbol table info available.
+#56 0x000000000044128a in main (argc=1, argv=0x7fffffffe6b8) at ../Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/main.cpp:42
+        app = <incomplete type>
+        arguments = {<QList<QString>> = {<QListSpecialMethods<QString>> = {<No data fields>}, {p = {static shared_null = {ref = {atomic = {_q_value = {<std::__atomic_base<int>> = {static _S_alignment = 4, _M_i = -1}, static is_always_lock_free = true}}}, alloc = 0, begin = 0, end = 0, array = {0x0}}, d = 0x9401f0}, d = 0x9401f0}}, <No data fields>}
+        argNum = -1
+        settings = {static PinnedRepos = {static null = {<No data fields>}, d = 0x80b9d0}, static SplitFileDiffView = {static null = <same as static member of an already seen type>, d = 0x80ba20}, globalSettings = <incomplete type>}
+        mainWin = {<QWidget> = {<No data fields>}, static staticMetaObject = {d = {superdata = {direct = 0x7ffff7f42ca0 <QWidget::staticMetaObject>}, stringdata = 0x739aa0 <qt_meta_stringdata_GitQlient>, data = 0x739b80 <qt_meta_data_GitQlient>, static_metacall = 0x5bb0ae <GitQlient::qt_static_metacall(QObject*, QMetaObject::Call, int, void**)>, relatedMetaObjects = 0x0, extradata = 0x0}}, mRepos = 0x9b97f0, mConfigWidget = 0x982d40, mCurrentRepos = {q_hash = {{d = 0x106a4e0, e = 0x106a4e0}}}}
+        ret = 0
+ 

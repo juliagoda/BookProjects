@@ -1,0 +1,181 @@
+[Info] [UI] [11-12-2020 18:34:54.306] [000000000114a180] Adding destination! 
+[Info] [UI] [11-12-2020 18:34:54.306] [000000000114a180] {GitQlient.cpp:138} Getting arguments {/home/juliagoda/BOOK/Third Book/BookProjects/build-GitQlient-Desktop-Debug/GitQlient} 
+[Info] [UI] [11-12-2020 18:34:54.306] [000000000114a180] {GitQlient.cpp:36} ******************************************* 
+[Info] [UI] [11-12-2020 18:34:54.306] [000000000114a180] {GitQlient.cpp:37} *          GitQlient has started          * 
+[Info] [UI] [11-12-2020 18:34:54.306] [000000000114a180] {GitQlient.cpp:38} *                  1.2.0                  * 
+[Info] [UI] [11-12-2020 18:34:54.306] [000000000114a180] {GitQlient.cpp:39} ******************************************* 
+[Info] [Git] [11-12-2020 18:34:54.306] [000000000114a180] Adding destination! 
+[Info] [UI] [11-12-2020 18:34:54.450] [000000000114a180] {GitQlient.cpp:106} Adding {0} repositories 
+[Debug] [Git] [11-12-2020 18:35:14.458] [000000000114a180] {GitConfig.cpp:174} Getting value for config key {remote.origin.url} 
+[Debug] [Git] [11-12-2020 18:35:14.464] [000000000114a180] {AGitProcess.cpp:161} Process started: git config --get remote.origin.url 
+[Debug] [Git] [11-12-2020 18:35:14.466] [000000000114a180] {AGitProcess.cpp:169} Process {git config --get remote.origin.url} finished. 
+[Debug] [Git] [11-12-2020 18:35:14.528] [000000000114a180] {GitConfig.cpp:174} Getting value for config key {remote.origin.url} 
+[Info] [UI] [11-12-2020 18:35:14.528] [000000000114a180] {GitQlientRepo.cpp:62} Initializing GitQlient 
+[Debug] [Git] [11-12-2020 18:35:14.535] [000000000114a180] {AGitProcess.cpp:161} Process started: git config --get remote.origin.url 
+[Debug] [Git] [11-12-2020 18:35:14.537] [000000000114a180] {AGitProcess.cpp:169} Process {git config --get remote.origin.url} finished. 
+[Debug] [Git] [11-12-2020 18:35:14.537] [000000000114a180] {GitConfig.cpp:174} Getting value for config key {remote.origin.url} 
+[Debug] [Git] [11-12-2020 18:35:14.544] [000000000114a180] {AGitProcess.cpp:161} Process started: git config --get remote.origin.url 
+[Debug] [Git] [11-12-2020 18:35:14.546] [000000000114a180] {AGitProcess.cpp:169} Process {git config --get remote.origin.url} finished. 
+[Info] [UI] [11-12-2020 18:35:14.698] [000000000114a180] {GitQlientRepo.cpp:195} Loading repository at {Encyclop_IT}... 
+[Info] [Git] [11-12-2020 18:35:14.699] [00000000019808b0] {GitRepoLoader.cpp:36} Initializing Git... 
+[Debug] [Git] [11-12-2020 18:35:14.699] [00000000019808b0] {GitRepoLoader.cpp:62} Configuring repository directory. 
+[Debug] [Git] [11-12-2020 18:35:14.710] [00000000019808b0] {AGitProcess.cpp:161} Process started: git rev-parse --show-cdup 
+[Debug] [Git] [11-12-2020 18:35:14.717] [00000000019808b0] {AGitProcess.cpp:169} Process {git rev-parse --show-cdup} finished. 
+[Debug] [Git] [11-12-2020 18:35:14.725] [00000000019808b0] {AGitProcess.cpp:161} Process started: git rev-parse --abbrev-ref HEAD 
+[Info] [UI] [11-12-2020 18:35:14.730] [000000000114a180] {GitQlient.cpp:212} Attaching repository to a new tab 
+[Debug] [Git] [11-12-2020 18:35:14.734] [00000000019808b0] {AGitProcess.cpp:169} Process {git rev-parse --abbrev-ref HEAD} finished. 
+[Info] [Git] [11-12-2020 18:35:14.735] [00000000019808b0] {GitRepoLoader.cpp:44} ... Git initialization finished. 
+[Info] [Git] [11-12-2020 18:35:14.735] [00000000019808b0] {GitRepoLoader.cpp:46} Requesting revisions... 
+[Debug] [Git] [11-12-2020 18:35:14.735] [00000000019808b0] {GitRepoLoader.cpp:169} Loading revisions. 
+[Debug] [Git] [11-12-2020 18:35:14.753] [00000000019808b0] {AGitProcess.cpp:161} Process started: git log --date-order --no-color --log-size --parents --boundary -z --pretty=format:%m%HX%P%n%cn<%ce>%n%an<%ae>%n%at%n%s%n%b -n 20 
+[Info] [Git] [11-12-2020 18:35:14.761] [00000000019808b0] {GitRepoLoader.cpp:191} Revisions received! 
+[Debug] [Git] [11-12-2020 18:35:14.761] [00000000019808b0] {GitConfig.cpp:174} Getting value for config key {remote.origin.url} 
+[Debug] [Git] [11-12-2020 18:35:14.773] [00000000019808b0] {AGitProcess.cpp:161} Process started: git config --get remote.origin.url 
+[Debug] [Git] [11-12-2020 18:35:14.775] [00000000019808b0] {AGitProcess.cpp:169} Process {git config --get remote.origin.url} finished. 
+[Info] [Git] [11-12-2020 18:35:14.775] [00000000019808b0] {GitRepoLoader.cpp:198} Requesting PR status! 
+[Debug] [Git] [11-12-2020 18:35:14.775] [00000000019808b0] {GitConfig.cpp:174} Getting value for config key {remote.origin.url} 
+[Debug] [Git] [11-12-2020 18:35:14.786] [00000000019808b0] {AGitProcess.cpp:161} Process started: git config --get remote.origin.url 
+[Debug] [Git] [11-12-2020 18:35:14.792] [00000000019808b0] {AGitProcess.cpp:169} Process {git config --get remote.origin.url} finished. 
+[Debug] [Git] [11-12-2020 18:35:14.792] [00000000019808b0] {GitRepoLoader.cpp:204} Processing revisions... 
+[Debug] [Git] [11-12-2020 18:35:14.792] [00000000019808b0] {GitConfig.cpp:174} Getting value for config key {log.showSignature} 
+[Debug] [Git] [11-12-2020 18:35:14.803] [00000000019808b0] {AGitProcess.cpp:161} Process started: git config --get log.showSignature 
+[Debug] [Git] [11-12-2020 18:35:14.810] [00000000019808b0] {AGitProcess.cpp:169} Process {git config --get log.showSignature} finished. 
+[Warning] [Git] [11-12-2020 18:35:14.810] [00000000019808b0] {GitBase.cpp:66} Git command {git config --get log.showSignature} has errors:
+ 
+[Debug] [Git] [11-12-2020 18:35:14.810] [00000000019808b0] {GitRepoLoader.cpp:226} Executing processWip. 
+[Debug] [Git] [11-12-2020 18:35:14.810] [00000000019808b0] {GitRepoLoader.cpp:262} Executing getUntrackedFiles. 
+[Debug] [Git] [11-12-2020 18:35:14.819] [00000000019808b0] {AGitProcess.cpp:161} Process started: git ls-files --others --exclude-from=$.git/info/exclude$ --exclude-per-directory=$.gitignore$ 
+[Debug] [Git] [11-12-2020 18:35:14.826] [00000000019808b0] {AGitProcess.cpp:169} Process {git ls-files --others --exclude-from=$.git/info/exclude$ --exclude-per-directory=$.gitignore$} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.835] [00000000019808b0] {AGitProcess.cpp:161} Process started: git rev-parse --revs-only HEAD 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.843] [00000000019808b0] {AGitProcess.cpp:169} Process {git rev-parse --revs-only HEAD} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.854] [00000000019808b0] {AGitProcess.cpp:161} Process started: git diff-index 078c3c1099958d4d28d1ae5f964d7406ada3d553 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.862] [00000000019808b0] {AGitProcess.cpp:169} Process {git diff-index 078c3c1099958d4d28d1ae5f964d7406ada3d553} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.878] [00000000019808b0] {AGitProcess.cpp:161} Process started: git diff-index --cached 078c3c1099958d4d28d1ae5f964d7406ada3d553 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.892] [00000000019808b0] {AGitProcess.cpp:169} Process {git diff-index --cached 078c3c1099958d4d28d1ae5f964d7406ada3d553} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.893] [00000000019808b0] {GitCache.cpp:30} Configuring the cache for {20} elements. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.893] [00000000019808b0] {GitCache.cpp:57} Adding WIP revision. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.893] [00000000019808b0] {GitCache.cpp:191} Updating the WIP commit. The actual parent has SHA {078c3c1099958d4d28d1ae5f964d7406ada3d553}. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.893] [00000000019808b0] {GitCache.cpp:231} Adding the revisions files between {0000000000000000000000000000000000000000} and {078c3c1099958d4d28d1ae5f964d7406ada3d553}. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.893] [00000000019808b0] {GitCache.cpp:63} Adding commited revisions. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.893] [00000000019808b0] {GitRepoLoader.cpp:79} Loading references. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.909] [00000000019808b0] {AGitProcess.cpp:161} Process started: git show-ref -d 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.911] [00000000019808b0] {AGitProcess.cpp:169} Process {git show-ref -d} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.923] [00000000019808b0] {AGitProcess.cpp:161} Process started: git rev-parse HEAD 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.930] [00000000019808b0] {AGitProcess.cpp:169} Process {git rev-parse HEAD} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.930] [00000000019808b0] {GitCache.cpp:244} Adding a new reference with SHA {078c3c1099958d4d28d1ae5f964d7406ada3d553}. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.930] [00000000019808b0] {GitBranches.cpp:28} Executing getDistanceBetweenBranches: {origin/master} and {master} 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.930] [00000000019808b0] {GitConfig.cpp:139} Getting remote for branch {master}. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.930] [00000000019808b0] {GitConfig.cpp:121} Getting local config 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.941] [00000000019808b0] {AGitProcess.cpp:161} Process started: git config --local --list 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.946] [00000000019808b0] {AGitProcess.cpp:169} Process {git config --local --list} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.962] [00000000019808b0] {AGitProcess.cpp:161} Process started: git rev-list --left-right --count origin/master...master 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.969] [00000000019808b0] {AGitProcess.cpp:169} Process {git rev-list --left-right --count origin/master...master} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.969] [00000000019808b0] {GitBranches.cpp:28} Executing getDistanceBetweenBranches: {origin/master} and {master} 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.969] [00000000019808b0] {GitConfig.cpp:139} Getting remote for branch {master}. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.969] [00000000019808b0] {GitConfig.cpp:121} Getting local config 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.986] [00000000019808b0] {AGitProcess.cpp:161} Process started: git config --local --list 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.989] [00000000019808b0] {AGitProcess.cpp:169} Process {git config --local --list} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:14.989] [00000000019808b0] {GitCache.cpp:244} Adding a new reference with SHA {078c3c1099958d4d28d1ae5f964d7406ada3d553}. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.045] [000000000114a180] {GitTags.cpp:17} Executing getRemoteTags 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.051] [000000000114a180] {AGitProcess.cpp:161} Process started: git ls-remote --tags 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.873] [000000000114a180] {GitQlientRepo.cpp:223} Setting the file watcher for dir {/home/juliagoda/Github/Encyclop_IT} 
+[Debug] [Git] [11-12-2020 18:35:15.533] [000000000114a180] {AGitProcess.cpp:169} Process {git ls-remote --tags} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Warning] [Git] [11-12-2020 18:35:15.533] [000000000114a180] {GitBase.cpp:66} Git command {git ls-remote --tags} has errors:
+fatal: could not read Username for 'https://github.com': Nie ma takiego urządzenia ani adresu
+ 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.877] [000000000114a180] {GitConfig.cpp:25} Getting global user info 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.884] [000000000114a180] {AGitProcess.cpp:161} Process started: git config --get --global user.name 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.886] [000000000114a180] {AGitProcess.cpp:169} Process {git config --get --global user.name} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.894] [000000000114a180] {AGitProcess.cpp:161} Process started: git config --get --global user.email 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.896] [000000000114a180] {GitQlientRepo.cpp:308} ... repository loaded successfully 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.896] [000000000114a180] {BranchesWidget.cpp:279} Loading branches data 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:290} Fetched {1} local branches 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:291} Processing local branches... 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:387} Adding local branch {master} 
+[Debug] [Git] [11-12-2020 18:35:15.896] [000000000114a180] {AGitProcess.cpp:169} Process {git config --get --global user.email} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.903] [000000000114a180] {GitStashes.cpp:17} Executing getStashes 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.913] [000000000114a180] {AGitProcess.cpp:161} Process started: git stash list 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.918] [000000000114a180] {AGitProcess.cpp:169} Process {git stash list} finished. 
+[Debug] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:463} Calculating distances... 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:475} Finish gathering local branch information 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.919] [000000000114a180] {GitSubmodules.cpp:16} Executing getSubmodules 
+[Info] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:305} ... local branches processed 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:312} Fetched {1} remote branches 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:313} Processing remote branches... 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [UI] [11-12-2020 18:35:15.902] [000000000114a180] {BranchesWidget.cpp:515} Adding remote branch {master} 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.903] [000000000114a180] {BranchesWidget.cpp:327} ... rmote branches processed 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.903] [000000000114a180] {BranchesWidget.cpp:532} Fetching {0} tags 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.940] [000000000114a180] {AGitProcess.cpp:161} Process started: git config --file .gitmodules --name-only --get-regexp path 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Debug] [Git] [11-12-2020 18:35:15.948] [000000000114a180] {AGitProcess.cpp:169} Process {git config --file .gitmodules --name-only --get-regexp path} finished. 
+[Error] [Git] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Warning] [Git] [11-12-2020 18:35:15.948] [000000000114a180] {GitBase.cpp:66} Git command {git config --file .gitmodules --name-only --get-regexp path} has errors:
+ 
+[Info] [UI] [11-12-2020 18:35:15.919] [000000000114a180] {BranchesWidget.cpp:562} Fetching {0} stashes 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.949] [000000000114a180] {BranchesWidget.cpp:582} Fetching {0} submodules 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.951] [000000000114a180] {HistoryWidget.cpp:418} Selected commit {0000000000000000000000000000000000000000} 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.951] [000000000114a180] {WipWidget.cpp:37} Updating files for SHA {0000000000000000000000000000000000000000} 
+[Error] [UI] [11-12-2020 18:35:14.834] [000000000114a180] {IRestApi.cpp:28} Error #301 - Protokół "" nie jest znany. 
+[Info] [UI] [11-12-2020 18:35:15.957] [000000000114a180] {HistoryWidget.cpp:418} Selected commit {0000000000000000000000000000000000000000} 

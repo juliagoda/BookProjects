@@ -1,0 +1,8 @@
+[Info] [UI] [11-12-2020 18:39:17.906] [0000000001268180] Adding destination! 
+[Info] [UI] [11-12-2020 18:39:17.906] [0000000001268180] {GitQlient.cpp:138} Getting arguments {/home/juliagoda/BOOK/Third Book/BookProjects/build-GitQlient-Desktop-Debug/GitQlient} 
+[Info] [UI] [11-12-2020 18:39:17.906] [0000000001268180] {GitQlient.cpp:36} ******************************************* 
+[Info] [UI] [11-12-2020 18:39:17.906] [0000000001268180] {GitQlient.cpp:37} *          GitQlient has started          * 
+[Info] [UI] [11-12-2020 18:39:17.906] [0000000001268180] {GitQlient.cpp:38} *                  1.2.0                  * 
+[Info] [UI] [11-12-2020 18:39:17.906] [0000000001268180] {GitQlient.cpp:39} ******************************************* 
+[Info] [Git] [11-12-2020 18:39:17.906] [0000000001268180] Adding destination! 
+[Info] [UI] [11-12-2020 18:39:18.066] [0000000001268180] {GitQlient.cpp:106} Adding {0} repositories 

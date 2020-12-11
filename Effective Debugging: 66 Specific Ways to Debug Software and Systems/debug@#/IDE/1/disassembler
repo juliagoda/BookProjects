@@ -1,0 +1,68 @@
+0x7ffff667fbd0                  f3 0f 1e fa                    endbr64
+0x7ffff667fbd4  <+    4>        55                             push   %rbp
+0x7ffff667fbd5  <+    5>        4c 89 c0                       mov    %r8,%rax
+0x7ffff667fbd8  <+    8>        49 89 ca                       mov    %rcx,%r10
+0x7ffff667fbdb  <+   11>        45 31 c0                       xor    %r8d,%r8d
+0x7ffff667fbde  <+   14>        48 83 ec 60                    sub    $0x60,%rsp
+0x7ffff667fbe2  <+   18>        64 48 8b 0c 25 28 00 00 00     mov    %fs:0x28,%rcx
+0x7ffff667fbeb  <+   27>        48 89 4c 24 58                 mov    %rcx,0x58(%rsp)
+0x7ffff667fbf0  <+   32>        31 c9                          xor    %ecx,%ecx
+0x7ffff667fbf2  <+   34>        48 85 c0                       test   %rax,%rax
+0x7ffff667fbf5  <+   37>        74 0e                          je     0x7ffff667fc05 <pselect+53>
+0x7ffff667fbf7  <+   39>        f3 0f 6f 00                    movdqu (%rax),%xmm0
+0x7ffff667fbfb  <+   43>        4c 8d 44 24 30                 lea    0x30(%rsp),%r8
+0x7ffff667fc00  <+   48>        0f 11 44 24 30                 movups %xmm0,0x30(%rsp)
+0x7ffff667fc05  <+   53>        4c 89 4c 24 40                 mov    %r9,0x40(%rsp)
+0x7ffff667fc0a  <+   58>        48 c7 44 24 48 08 00 00 00     movq   $0x8,0x48(%rsp)
+0x7ffff667fc13  <+   67>        64 8b 04 25 18 00 00 00        mov    %fs:0x18,%eax
+0x7ffff667fc1b  <+   75>        4c 8d 4c 24 40                 lea    0x40(%rsp),%r9
+0x7ffff667fc20  <+   80>        85 c0                          test   %eax,%eax
+0x7ffff667fc22  <+   82>        75 2c                          jne    0x7ffff667fc50 <pselect+128>
+0x7ffff667fc24  <+   84>        b8 0e 01 00 00                 mov    $0x10e,%eax
+0x7ffff667fc29  <+   89>        0f 05                          syscall
+0x7ffff667fc2b  <+   91>        48 3d 00 f0 ff ff              cmp    $0xfffffffffffff000,%rax
+0x7ffff667fc31  <+   97>        77 7d                          ja     0x7ffff667fcb0 <pselect+224>
+0x7ffff667fc33  <+   99>        48 8b 4c 24 58                 mov    0x58(%rsp),%rcx
+0x7ffff667fc38  <+  104>        64 48 2b 0c 25 28 00 00 00     sub    %fs:0x28,%rcx
+0x7ffff667fc41  <+  113>        0f 85 9c 00 00 00              jne    0x7ffff667fce3 <pselect+275>
+0x7ffff667fc47  <+  119>        48 83 c4 60                    add    $0x60,%rsp
+0x7ffff667fc4b  <+  123>        5d                             pop    %rbp
+0x7ffff667fc4c  <+  124>        c3                             ret
+0x7ffff667fc4d  <+  125>        0f 1f 00                       nopl   (%rax)
+0x7ffff667fc50  <+  128>        4c 89 54 24 28                 mov    %r10,0x28(%rsp)
+0x7ffff667fc55  <+  133>        48 89 54 24 20                 mov    %rdx,0x20(%rsp)
+0x7ffff667fc5a  <+  138>        48 89 74 24 18                 mov    %rsi,0x18(%rsp)
+0x7ffff667fc5f  <+  143>        89 7c 24 14                    mov    %edi,0x14(%rsp)
+0x7ffff667fc63  <+  147>        4c 89 4c 24 08                 mov    %r9,0x8(%rsp)
+0x7ffff667fc68  <+  152>        4c 89 04 24                    mov    %r8,(%rsp)
+0x7ffff667fc6c  <+  156>        e8 1f dc f8 ff                 call   0x7ffff660d890 <__libc_enable_asynccancel>
+0x7ffff667fc71  <+  161>        4c 8b 4c 24 08                 mov    0x8(%rsp),%r9
+0x7ffff667fc76  <+  166>        4c 8b 04 24                    mov    (%rsp),%r8
+0x7ffff667fc7a  <+  170>        89 c5                          mov    %eax,%ebp
+0x7ffff667fc7c  <+  172>        4c 8b 54 24 28                 mov    0x28(%rsp),%r10
+0x7ffff667fc81  <+  177>        48 8b 54 24 20                 mov    0x20(%rsp),%rdx
+0x7ffff667fc86  <+  182>        b8 0e 01 00 00                 mov    $0x10e,%eax
+0x7ffff667fc8b  <+  187>        48 8b 74 24 18                 mov    0x18(%rsp),%rsi
+0x7ffff667fc90  <+  192>        8b 7c 24 14                    mov    0x14(%rsp),%edi
+0x7ffff667fc94  <+  196>        0f 05                          syscall
+HERE! 0x7ffff667fc96  <+  198>        48 3d 00 f0 ff ff              cmp    $0xfffffffffffff000,%rax
+0x7ffff667fc9c  <+  204>        77 32                          ja     0x7ffff667fcd0 <pselect+256>
+0x7ffff667fc9e  <+  206>        89 ef                          mov    %ebp,%edi
+0x7ffff667fca0  <+  208>        89 04 24                       mov    %eax,(%rsp)
+0x7ffff667fca3  <+  211>        e8 68 dc f8 ff                 call   0x7ffff660d910 <__libc_disable_asynccancel>
+0x7ffff667fca8  <+  216>        8b 04 24                       mov    (%rsp),%eax
+0x7ffff667fcab  <+  219>        eb 86                          jmp    0x7ffff667fc33 <pselect+99>
+0x7ffff667fcad  <+  221>        0f 1f 00                       nopl   (%rax)
+0x7ffff667fcb0  <+  224>        48 8b 15 99 a1 0c 00           mov    0xca199(%rip),%rdx        # 0x7ffff6749e50
+0x7ffff667fcb7  <+  231>        f7 d8                          neg    %eax
+0x7ffff667fcb9  <+  233>        64 89 02                       mov    %eax,%fs:(%rdx)
+0x7ffff667fcbc  <+  236>        b8 ff ff ff ff                 mov    $0xffffffff,%eax
+0x7ffff667fcc1  <+  241>        e9 6d ff ff ff                 jmp    0x7ffff667fc33 <pselect+99>
+0x7ffff667fcc6  <+  246>        66 2e 0f 1f 84 00 00 00 00 00  nopw   %cs:0x0(%rax,%rax,1)
+0x7ffff667fcd0  <+  256>        48 8b 15 79 a1 0c 00           mov    0xca179(%rip),%rdx        # 0x7ffff6749e50
+0x7ffff667fcd7  <+  263>        f7 d8                          neg    %eax
+0x7ffff667fcd9  <+  265>        64 89 02                       mov    %eax,%fs:(%rdx)
+0x7ffff667fcdc  <+  268>        b8 ff ff ff ff                 mov    $0xffffffff,%eax
+0x7ffff667fce1  <+  273>        eb bb                          jmp    0x7ffff667fc9e <pselect+206>
+0x7ffff667fce3  <+  275>        e8 08 7d 01 00                 call   0x7ffff66979f0 <__stack_chk_fail>
+ 
