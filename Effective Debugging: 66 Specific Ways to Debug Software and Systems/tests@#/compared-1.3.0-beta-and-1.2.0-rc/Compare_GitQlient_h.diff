@@ -1,0 +1,35 @@
+diff --git a/src/big_widgets/GitQlient.h b/src/big_widgets/GitQlient.h
+index 67b630e..50d7aa6 100644
+--- a/src/big_widgets/GitQlient.h
++++ b/src/big_widgets/GitQlient.h
+@@ -74,6 +74,12 @@ public:
+    */
+    void setArgumentsPostInit(const QStringList &arguments);
+ 
++   /**
++    * @brief restorePinnedRepos This method restores the pinned repos from the last session
++    * @param pinnedRepos The list of repos to restore
++    */
++   void restorePinnedRepos();
++
+ private:
+    QPinnableTabWidget *mRepos = nullptr;
+    ConfigWidget *mConfigWidget = nullptr;
+@@ -116,8 +122,14 @@ private:
+    void closeTab(int tabIndex);
+ 
+    /**
+-    * @brief restorePinnedRepos This method restores the pinned repos from the last session
+-    * @param pinnedRepos The list of repos to restore
++    * @brief onSuccessOpen Refreshes the UI for the most used and most recent projects lists.
++    * @param fullPath The full path of the project successfully opened.
+     */
+-   void restorePinnedRepos();
++   void onSuccessOpen(const QString &fullPath);
++
++   /**
++    * @brief conditionallyOpenPreConfigDlg Opens the pre-config dialog in case that the repo is open for the very first
++    * time.
++    */
++   void conditionallyOpenPreConfigDlg(const QString &repoPath);
+ };
