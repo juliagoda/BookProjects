@@ -4,6 +4,7 @@
 #include <GitQlientStyles.h>
 #include <GitQlientSettings.h>
 #include <QPinnableTabWidget.h>
+#include <InitialRepoConfig.h>
 
 #include <QProcess>
 #include <QTabBar>
@@ -12,6 +13,8 @@
 #include <QPushButton>
 #include <QFile>
 #include <QFileDialog>
+#include <QMessageBox>
+#include <GitBase.h>
 
 #include <QLogger.h>
 
@@ -34,8 +37,6 @@ GitQlient::GitQlient(const QStringList &arguments, QWidget *parent)
    QLog_Info("UI", "*          GitQlient has started          *");
    QLog_Info("UI", QString("*                  %1                  *").arg(VER));
    QLog_Info("UI", "*******************************************");
-
-   QFile styles(":/stylesheet");
 
    setStyleSheet(GitQlientStyles::getStyles());
 
@@ -126,15 +127,18 @@ QStringList GitQlient::parseArguments(const QStringList &arguments)
 #ifdef DEBUG
    logLevel = LogLevel::Trace;
 #else
-   logLevel = static_cast<LogLevel>(settings.globalValue("logsLevel", static_cast<int>(LogLevel::Info)).toInt());
+   logLevel = static_cast<LogLevel>(settings.globalValue("logsLevel", static_cast<int>(LogLevel::Warning)).toInt());
 #endif
 
-   if (arguments.contains("-noLog") || settings.globalValue("logsDisabled", false).toBool())
+   if (arguments.contains("-noLog") || settings.globalValue("logsDisabled", true).toBool())
       QLoggerManager::getInstance()->pause();
+   else
+      QLoggerManager::getInstance()->overwriteLogLevel(logLevel);
 
    QLog_Info("UI", QString("Getting arguments {%1}").arg(arguments.join(", ")));
 
    QStringList repos;
+
    const auto argSize = arguments.count();
 
    for (auto i = 0; i < argSize;)
@@ -176,73 +180,118 @@ void GitQlient::addRepoTab(const QString &repoPath)
 
 void GitQlient::addNewRepoTab(const QString &repoPath, bool pinned)
 {
-   if (!mCurrentRepos.contains(repoPath))
+   if (!mCurrentRepos.contains(repoPath) && !repoPath.isEmpty())
    {
-      const auto repoName = repoPath.contains("/") ? repoPath.split("/").last() : "No repo";
-      const auto repo = new GitQlientRepo(repoPath);
+      QFileInfo info(QString("%1/.git").arg(repoPath));
 
-      const auto index = pinned ? mRepos->addPinnedTab(repo, repoName) : mRepos->addTab(repo, repoName);
-
-      connect(repo, &GitQlientRepo::signalEditFile, this, &GitQlient::signalEditDocument);
-      connect(repo, &GitQlientRepo::signalOpenSubmodule, this, &GitQlient::addRepoTab);
-      connect(repo, &GitQlientRepo::repoOpened, this, &GitQlient::onSuccessOpen);
-
-      repo->setRepository(repoName);
-
-      if (!repoPath.isEmpty())
+      if (info.isFile() || info.isDir())
       {
-         QProcess p;
-         p.setWorkingDirectory(repoPath);
-         p.start("git rev-parse", { "--show-superproject-working-tree" });
-         p.waitForFinished(5000);
+         conditionallyOpenPreConfigDlg(repoPath);
 
-         const auto output = p.readAll().trimmed();
-         const auto isSubmodule = !output.isEmpty();
+         const auto repoName = repoPath.contains("/") ? repoPath.split("/").last() : "No repo";
+         const auto repo = new GitQlientRepo(repoPath);
+         const auto index = pinned ? mRepos->addPinnedTab(repo, repoName) : mRepos->addTab(repo, repoName);
 
-         mRepos->setTabIcon(index, QIcon(isSubmodule ? QString(":/icons/submodules") : QString(":/icons/local")));
+         connect(repo, &GitQlientRepo::signalEditFile, this, &GitQlient::signalEditDocument);
+         connect(repo, &GitQlientRepo::signalOpenSubmodule, this, &GitQlient::addRepoTab);
+         connect(repo, &GitQlientRepo::repoOpened, this, &GitQlient::onSuccessOpen);
 
-         QLog_Info("UI", "Attaching repository to a new tab");
+         repo->setRepository(repoName);
 
-         if (isSubmodule)
-         {
-            const auto parentRepo = QString::fromUtf8(output.split('/').last());
+            QProcess p;
+            p.setWorkingDirectory(repoPath);
+            p.start("git rev-parse", { "--show-superproject-working-tree" });
+            p.waitForFinished(5000);
 
-            mRepos->setTabText(index, QString("%1 \u2192 %2").arg(parentRepo, repoName));
+            const auto output = p.readAll().trimmed();
+            const auto isSubmodule = !output.isEmpty();
 
-            QLog_Info("UI",
-                      QString("Opening the submodule {%1} from the repo {%2} on tab index {%3}")
-                          .arg(repoName, parentRepo)
-                          .arg(index));
-         }
+            mRepos->setTabIcon(index, QIcon(isSubmodule ? QString(":/icons/submodules") : QString(":/icons/local")));
+
+            QLog_Info("UI", "Attaching repository to a new tab");
+
+            if (isSubmodule)
+            {
+               const auto parentRepo = QString::fromUtf8(output.split('/').last());
+
+               mRepos->setTabText(index, QString("%1 \u2192 %2").arg(parentRepo, repoName));
+
+               QLog_Info("UI",
+                         QString("Opening the submodule {%1} from the repo {%2} on tab index {%3}")
+                             .arg(repoName, parentRepo)
+                             .arg(index));
+            }
+            else
+            {
+                QLog_Info("UI",
+                          QString("{%1} is not a submodule on tab index {%2}")
+                              .arg(repoName).arg(index));
+            }
+
+
+         mRepos->setCurrentIndex(index);
+
+         mCurrentRepos.insert(repoPath);
       }
-
-      mRepos->setCurrentIndex(index);
-
-      mCurrentRepos.insert(repoPath);
+      else
+      {
+         QLog_Info("UI", "Trying to open a directory that is not a Git repository.");
+         QMessageBox::information(
+             this, tr("Not a Git repository"),
+             tr("The selected path is not a Git repository. Please make sure you opened the correct directory."));
+      }
    }
    else
-      QLog_Warning("UI", QString("Repository at {%1} already opened. Skip adding it again.").arg(repoPath));
+      QLog_Warning("UI", QString("Repository at {%1} already opened or is empty.").arg(repoPath));
 }
 
 void GitQlient::closeTab(int tabIndex)
 {
+    QLog_Warning("UI", QString("Tab's closing with given index {%1}").arg(tabIndex));
 
    auto repoToRemove = dynamic_cast<GitQlientRepo *>(mRepos->widget(tabIndex));
 
-   QLog_Info("UI", QString("Removing repository {%1}").arg(repoToRemove->currentDir()));
+   if (repoToRemove != nullptr && tabIndex > -1)
+   {
+       QLog_Info("UI", QString("Removing repository {%1}").arg(repoToRemove->currentDir()));
 
-   mCurrentRepos.remove(repoToRemove->currentDir());
-   mRepos->removeTab(tabIndex);
-   repoToRemove->close();
+       mCurrentRepos.remove(repoToRemove->currentDir());
+       // mRepos->removeTab(tabIndex);
+       repoToRemove->close();
+   }
+   else
+   {
+       QLog_Warning("UI", QString("Current tab cannot be closed, because it's not a repo. Tab index {%1}").arg(tabIndex));
+
+       QMessageBox::warning(this, QString("Closing Tab"), QString("Current tab cannot be closed, because it's not a repo!"));
+   }
 }
 
 void GitQlient::restorePinnedRepos()
 {
    GitQlientSettings settings;
+
    const auto pinnedRepos = settings.globalValue(GitQlientSettings::PinnedRepos, QStringList()).toStringList();
 
+   QLog_Warning("UI", QString("Pinned repos to restore: {%1}").arg(pinnedRepos.join(", ")));
+
    for (auto &repo : pinnedRepos)
-      addNewRepoTab(repo, true);
+       addNewRepoTab(repo, true);
+}
+
+QPinnableTabWidget *GitQlient::getRepos() const
+{
+    return mRepos;
+}
+
+ConfigWidget *GitQlient::getConfigWidget() const
+{
+    return mConfigWidget;
+}
+
+QSet<QString> GitQlient::getCurrentRepos() const
+{
+    return mCurrentRepos;
 }
 
 void GitQlient::onSuccessOpen(const QString &fullPath)
@@ -251,4 +300,23 @@ void GitQlient::onSuccessOpen(const QString &fullPath)
    settings.setProjectOpened(fullPath);
 
    mConfigWidget->onRepoOpened();
+}
+
+void GitQlient::conditionallyOpenPreConfigDlg(const QString &repoPath)
+{
+   QSharedPointer<GitBase> git(new GitBase(repoPath));
+
+   GitQlientSettings settings;
+   auto maxCommits = settings.localValue(git->getGitQlientSettingsDir(), "MaxCommits", -1).toInt();
+
+   if (maxCommits == -1)
+   {
+      QLog_Info("UI", QString("Repo {%1} has -1 max commits - preconfiguration needed").arg(repoPath));
+      const auto preConfig = new InitialRepoConfig(git, this);
+      preConfig->exec();
+   }
+   else
+   {
+       QLog_Info("UI", QString("Max commits == {%1} for the repo: {%2}").arg(maxCommits).arg(repoPath));
+   }
 }

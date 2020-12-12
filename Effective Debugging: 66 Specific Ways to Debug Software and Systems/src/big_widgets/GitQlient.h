@@ -80,6 +80,13 @@ public:
     */
    void restorePinnedRepos();
 
+
+   QPinnableTabWidget* getRepos() const;
+
+   ConfigWidget* getConfigWidget() const;
+
+   QSet<QString> getCurrentRepos() const;
+
 private:
    QPinnableTabWidget *mRepos = nullptr;
    ConfigWidget *mConfigWidget = nullptr;
@@ -126,4 +133,10 @@ private:
     * @param fullPath The full path of the project successfully opened.
     */
    void onSuccessOpen(const QString &fullPath);
+
+   /**
+    * @brief conditionallyOpenPreConfigDlg Opens the pre-config dialog in case that the repo is open for the very first
+    * time.
+    */
+   void conditionallyOpenPreConfigDlg(const QString &repoPath);
 };

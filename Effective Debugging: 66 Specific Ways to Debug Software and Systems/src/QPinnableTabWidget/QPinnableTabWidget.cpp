@@ -29,13 +29,17 @@ protected:
 
    void mouseMoveEvent(QMouseEvent *event) override
    {
-      const auto currentPinned = dynamic_cast<QPinnableTabWidget *>(parentWidget())->isPinned(mIndexToMove);
-      const auto newPosIsPinned
-          = dynamic_cast<QPinnableTabWidget *>(parentWidget())->isPinned(indexAtPos(event->pos()));
-      const auto lastPinnedTab = dynamic_cast<QPinnableTabWidget *>(parentWidget())->getLastPinnedTabIndex();
+      const auto tabWidget = dynamic_cast<QPinnableTabWidget *>(parentWidget());
 
-      if (!currentPinned && !newPosIsPinned && (event->pos().x() - mDistToStart) > tabRect(lastPinnedTab).right())
-         QTabBar::mouseMoveEvent(event);
+      if (tabWidget)
+      {
+         const auto currentPinned = tabWidget->isPinned(mIndexToMove);
+         const auto newPosIsPinned = tabWidget->isPinned(indexAtPos(event->pos()));
+         const auto lastPinnedTab = tabWidget->getLastPinnedTabIndex();
+
+         if (!currentPinned && !newPosIsPinned && (event->pos().x() - mDistToStart) > tabRect(lastPinnedTab).right())
+            QTabBar::mouseMoveEvent(event);
+      }
    }
 
    void mouseReleaseEvent(QMouseEvent *event) override
@@ -78,6 +82,7 @@ QPinnableTabWidget::QPinnableTabWidget(QWidget *parent)
 int QPinnableTabWidget::addPinnedTab(QWidget *page, const QString &label)
 {
    const auto tabIndex = addTab(page, label);
+
    tabBar()->setTabButton(
        tabIndex,
        static_cast<QTabBar::ButtonPosition>(style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, this)),
@@ -177,7 +182,10 @@ void QPinnableTabWidget::clickRequested(int index)
 
 void QPinnableTabWidget::showContextMenu()
 {
-   if (!mPrepareMenu)
+   if (!mPrepareMenu || mPolicy == ContextMenuPolicy::ShowNever)
+      return;
+
+   if (mPolicy == ContextMenuPolicy::OnlyUnpinned && mTabState.value(mClickedTab))
       return;
 
    const auto actions = new QMenu(this);
@@ -187,7 +195,7 @@ void QPinnableTabWidget::showContextMenu()
    else
       connect(actions->addAction("Pin"), &QAction::triggered, this, &QPinnableTabWidget::pintTab);
 
-   connect(actions->addAction("Close"), &QAction::triggered, this, [this]() { removeTab(mClickedTab); });
+   connect(actions->addAction("Close"), &QAction::triggered, this, [this]() { emit tabCloseRequested(mClickedTab); });
 
    actions->exec(QCursor::pos());
 }
