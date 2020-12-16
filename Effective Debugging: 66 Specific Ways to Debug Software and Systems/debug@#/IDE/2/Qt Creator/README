@@ -1,5 +1,5 @@
 
 Attention!
 
-Run the change_path.sh script before you use the session file in Qt Creator
+Run the change_path.sh script before you use the session file in Qt Creator. To do this, you must be in the current path (i.e. where the script is located) in the console.
 

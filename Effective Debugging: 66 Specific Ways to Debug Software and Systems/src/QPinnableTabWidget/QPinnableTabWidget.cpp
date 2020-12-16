@@ -139,12 +139,17 @@ int QPinnableTabWidget::insertTab(int index, QWidget *widget, const QIcon &icon,
 
 void QPinnableTabWidget::removeTab(int index)
 {
-   QTabWidget::removeTab(index);
+   // do this only if index > 0
+   // because we don't want to remove main tab
+   if (index > 0)
+   {
+       QTabWidget::removeTab(index);
 
-   if (mTabState.value(index))
-      --mLastPinTab;
+       if (mTabState.value(index))
+          --mLastPinTab;
 
-   mTabState.remove(index);
+       mTabState.remove(index);
+   }
 }
 
 void QPinnableTabWidget::clear()
@@ -257,6 +262,6 @@ void QPinnableTabWidget::unpinTab()
    }
    else
    {
-       QMessageBox::information(this, tr("Attempted Unpinning"), tr("Unpinning the first main tab with the main window is not possible."));
+       QMessageBox::warning(this, tr("Attempted Unpinning"), tr("Unpinning the first main tab with the main window is not possible."));
    }
 }

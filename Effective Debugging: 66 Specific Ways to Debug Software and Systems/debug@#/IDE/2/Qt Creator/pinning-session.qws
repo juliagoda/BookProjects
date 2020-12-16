@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorSession>
-<!-- Written by QtCreator 4.13.3, 2020-12-16T18:12:25. -->
+<!-- Written by QtCreator 4.13.3, 2020-12-16T19:51:29. -->
 <qtcreator>
  <data>
   <variable>CascadeSetActive</variable>
@@ -12,7 +12,7 @@
  </data>
  <data>
   <variable>EditorSettings</variable>
-  <value type="QByteArray">AAAAD0VkaXRvck1hbmFnZXJWNQAAAAEAAAE8AC8AaABvAG0AZQAvAGoAdQBsAGkAYQBnAG8AZABhAC8AQgBPAE8ASwAvAFQAaABpAHIAZAAgAEIAbwBvAGsALwBCAG8AbwBrAFAAcgBvAGoAZQBjAHQAcwAvAEUAZgBmAGUAYwB0AGkAdgBlACAARABlAGIAdQBnAGcAaQBuAGcAOgAgADYANgAgAFMAcABlAGMAaQBmAGkAYwAgAFcAYQB5AHMAIAB0AG8AIABEAGUAYgB1AGcAIABTAG8AZgB0AHcAYQByAGUAIABhAG4AZAAgAFMAeQBzAHQAZQBtAHMALwBzAHIAYwAvAFEAUABpAG4AbgBhAGIAbABlAFQAYQBiAFcAaQBkAGcAZQB0AC8AUQBQAGkAbgBuAGEAYgBsAGUAVABhAGIAVwBpAGQAZwBlAHQALgBjAHAAcAAAAAwAAAAAIAAAAAIAAABdAAAAAAAAAG8AAAAEAAAAAAAAAF0AAAB4AAAAAQAAATwALwBoAG8AbQBlAC8AagB1AGwAaQBhAGcAbwBkAGEALwBCAE8ATwBLAC8AVABoAGkAcgBkACAAQgBvAG8AawAvAEIAbwBvAGsAUAByAG8AagBlAGMAdABzAC8ARQBmAGYAZQBjAHQAaQB2AGUAIABEAGUAYgB1AGcAZwBpAG4AZwA6ACAANgA2ACAAUwBwAGUAYwBpAGYAaQBjACAAVwBhAHkAcwAgAHQAbwAgAEQAZQBiAHUAZwAgAFMAbwBmAHQAdwBhAHIAZQAgAGEAbgBkACAAUwB5AHMAdABlAG0AcwAvAHMAcgBjAC8AUQBQAGkAbgBuAGEAYgBsAGUAVABhAGIAVwBpAGQAZwBlAHQALwBRAFAAaQBuAG4AYQBiAGwAZQBUAGEAYgBXAGkAZABnAGUAdAAuAGMAcABwAAAALABRAFAAaQBuAG4AYQBiAGwAZQBUAGEAYgBXAGkAZABnAGUAdAAuAGMAcABwAAAAE0NwcEVkaXRvci5DKytFZGl0b3IAAAABnwAAAA1jdXJyZW50ZWRpdG9yAAABPAAvAGgAbwBtAGUALwBqAHUAbABpAGEAZwBvAGQAYQAvAEIATwBPAEsALwBUAGgAaQByAGQAIABCAG8AbwBrAC8AQgBvAG8AawBQAHIAbwBqAGUAYwB0AHMALwBFAGYAZgBlAGMAdABpAHYAZQAgAEQAZQBiAHUAZwBnAGkAbgBnADoAIAA2ADYAIABTAHAAZQBjAGkAZgBpAGMAIABXAGEAeQBzACAAdABvACAARABlAGIAdQBnACAAUwBvAGYAdAB3AGEAcgBlACAAYQBuAGQAIABTAHkAcwB0AGUAbQBzAC8AcwByAGMALwBRAFAAaQBuAG4AYQBiAGwAZQBUAGEAYgBXAGkAZABnAGUAdAAvAFEAUABpAG4AbgBhAGIAbABlAFQAYQBiAFcAaQBkAGcAZQB0AC4AYwBwAHAAAAAmAEMAcABwAEUAZABpAHQAbwByAC4AQwArACsARQBkAGkAdABvAHIAAAAgAAAAAgAAAF0AAAAAAAAAbwAAAAQAAAAAAAAAXQAAAHgAAAAA</value>
+  <value type="QByteArray">AAAAD0VkaXRvck1hbmFnZXJWNQAAAAEAAAE8AC8AaABvAG0AZQAvAGoAdQBsAGkAYQBnAG8AZABhAC8AQgBPAE8ASwAvAFQAaABpAHIAZAAgAEIAbwBvAGsALwBCAG8AbwBrAFAAcgBvAGoAZQBjAHQAcwAvAEUAZgBmAGUAYwB0AGkAdgBlACAARABlAGIAdQBnAGcAaQBuAGcAOgAgADYANgAgAFMAcABlAGMAaQBmAGkAYwAgAFcAYQB5AHMAIAB0AG8AIABEAGUAYgB1AGcAIABTAG8AZgB0AHcAYQByAGUAIABhAG4AZAAgAFMAeQBzAHQAZQBtAHMALwBzAHIAYwAvAFEAUABpAG4AbgBhAGIAbABlAFQAYQBiAFcAaQBkAGcAZQB0AC8AUQBQAGkAbgBuAGEAYgBsAGUAVABhAGIAVwBpAGQAZwBlAHQALgBjAHAAcAAAAAwAAAAAIAAAAAIAAAClAAAAAAAAAI0AAAABAAAAAAAAAKUAAADBAAAAAQAAATwALwBoAG8AbQBlAC8AagB1AGwAaQBhAGcAbwBkAGEALwBCAE8ATwBLAC8AVABoAGkAcgBkACAAQgBvAG8AawAvAEIAbwBvAGsAUAByAG8AagBlAGMAdABzAC8ARQBmAGYAZQBjAHQAaQB2AGUAIABEAGUAYgB1AGcAZwBpAG4AZwA6ACAANgA2ACAAUwBwAGUAYwBpAGYAaQBjACAAVwBhAHkAcwAgAHQAbwAgAEQAZQBiAHUAZwAgAFMAbwBmAHQAdwBhAHIAZQAgAGEAbgBkACAAUwB5AHMAdABlAG0AcwAvAHMAcgBjAC8AUQBQAGkAbgBuAGEAYgBsAGUAVABhAGIAVwBpAGQAZwBlAHQALwBRAFAAaQBuAG4AYQBiAGwAZQBUAGEAYgBXAGkAZABnAGUAdAAuAGMAcABwAAAALABRAFAAaQBuAG4AYQBiAGwAZQBUAGEAYgBXAGkAZABnAGUAdAAuAGMAcABwAAAAE0NwcEVkaXRvci5DKytFZGl0b3IAAAABnwAAAA1jdXJyZW50ZWRpdG9yAAABPAAvAGgAbwBtAGUALwBqAHUAbABpAGEAZwBvAGQAYQAvAEIATwBPAEsALwBUAGgAaQByAGQAIABCAG8AbwBrAC8AQgBvAG8AawBQAHIAbwBqAGUAYwB0AHMALwBFAGYAZgBlAGMAdABpAHYAZQAgAEQAZQBiAHUAZwBnAGkAbgBnADoAIAA2ADYAIABTAHAAZQBjAGkAZgBpAGMAIABXAGEAeQBzACAAdABvACAARABlAGIAdQBnACAAUwBvAGYAdAB3AGEAcgBlACAAYQBuAGQAIABTAHkAcwB0AGUAbQBzAC8AcwByAGMALwBRAFAAaQBuAG4AYQBiAGwAZQBUAGEAYgBXAGkAZABnAGUAdAAvAFEAUABpAG4AbgBhAGIAbABlAFQAYQBiAFcAaQBkAGcAZQB0AC4AYwBwAHAAAAAmAEMAcABwAEUAZABpAHQAbwByAC4AQwArACsARQBkAGkAdABvAHIAAAAgAAAAAgAAAKUAAAAAAAAAjQAAAAEAAAAAAAAApQAAAMEAAAAA</value>
  </data>
  <data>
   <variable>ProjectDependencies</variable>
@@ -37,7 +37,7 @@
   <valuelist type="QVariantList">
    <valuemap type="QVariantMap">
     <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">91</value>
+    <value type="int" key="linenumber">92</value>
    </valuemap>
    <valuemap type="QVariantMap">
     <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
@@ -45,7 +45,7 @@
    </valuemap>
    <valuemap type="QVariantMap">
     <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">106</value>
+    <value type="int" key="linenumber">107</value>
    </valuemap>
    <valuemap type="QVariantMap">
     <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
@@ -53,11 +53,59 @@
    </valuemap>
    <valuemap type="QVariantMap">
     <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">125</value>
+    <value type="int" key="linenumber">126</value>
    </valuemap>
    <valuemap type="QVariantMap">
     <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">128</value>
+    <value type="int" key="linenumber">129</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">141</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">157</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">167</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">172</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">180</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">202</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">216</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">224</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">229</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">261</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">151</value>
+   </valuemap>
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
+    <value type="int" key="linenumber">200</value>
    </valuemap>
    <valuemap type="QVariantMap">
     <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
@@ -67,83 +115,11 @@
     <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
     <value type="int" key="linenumber">136</value>
    </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">141</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">147</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">148</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">151</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">162</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">167</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">175</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">173</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">181</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">187</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">190</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">194</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">195</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">197</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">210</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">219</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">224</value>
-   </valuemap>
-   <valuemap type="QVariantMap">
-    <value type="QString" key="filename">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp</value>
-    <value type="int" key="linenumber">256</value>
-   </valuemap>
   </valuelist>
  </data>
  <data>
   <variable>value-DebuggerSeparateWidgetGeometry</variable>
-  <value type="QRect">100x30+0+0</value>
+  <value type="QRect">400x400+0+0</value>
  </data>
  <data>
   <variable>value-DefaultFormats</variable>
@@ -157,16 +133,16 @@
   <variable>value-ProjectTree.ExpandData</variable>
   <valuelist type="QVariantList">
    <valuelist type="QVariantList">
-    <value type="QString">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems</value>
-    <value type="QString">GitQlient [66-debug-ways-pinning-solution]</value>
-   </valuelist>
-   <valuelist type="QVariantList">
     <value type="QString">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/App.pri</value>
     <value type="QString">App</value>
    </valuelist>
    <valuelist type="QVariantList">
     <value type="QString">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget/QPinnableTabWidget.pri</value>
     <value type="QString">QPinnableTabWidget</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems</value>
+    <value type="QString">GitQlient [66-debug-ways-pinning-solution]</value>
    </valuelist>
    <valuelist type="QVariantList">
     <value type="QString">YOUR_PATH/BookProjects/Effective Debugging: 66 Specific Ways to Debug Software and Systems/src/QPinnableTabWidget</value>
