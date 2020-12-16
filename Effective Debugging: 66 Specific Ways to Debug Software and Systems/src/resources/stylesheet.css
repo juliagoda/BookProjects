@@ -4,6 +4,12 @@
    font-size: 10pt;
 }
 
+a
+{
+   color: white;
+   font-decoration: italic;
+}
+
 #InitWidget
 {
    max-width: 800px;
@@ -55,6 +61,7 @@ Controls > QToolButton
    min-height: 35px;
 }
 
+QToolButton:menu-indicator, QToolButton::menu-button,
 Controls > QToolButton:menu-indicator, BranchesWidgetMinimal > QToolButton:menu-indicator,
 Controls > QToolButton:menu-button, #ToolButtonWithMenu:menu-button, #ToolButtonWithMenu:menu-indicator
 {
@@ -109,7 +116,8 @@ QPushButton:hover
 {
     padding: 8px 10px;
     font-weight: bold;
-    font-family: Ubuntu Mono;
+    font-family: "DejaVu Sans Mono";
+    font-size: 8pt;
 }
 
 CommitDiffWidget
@@ -231,7 +239,7 @@ FullDiffWidget
     border: none;
 }
 
-FullDiffWidget > QTextEdit, #leCommitTitle, #teDescription, #leAuthorName, #leAuthorEmail
+FullDiffWidget > QPlainTextEdit, #leCommitTitle, #teDescription, #leAuthorName, #leAuthorEmail
 {
     border-width: 1px;
     border-style: solid;
@@ -257,13 +265,13 @@ QLabel#lCounter
     border-width: 1px;
     border-style: solid;
     border-left-width: 0;
-    font-family: Ubuntu Mono;
+    font-family: "DejaVu Sans Mono";
     max-width: 29px;
     min-width: 29px;
     qproperty-alignment: AlignCenter;
 }
 
-CommitChangesWidget > QFrame#stagedFiles, CommitChangesWidget > QFrame#unstagedFiles, CommitChangesWidget > QFrame#untrackedFiles
+CommitChangesWidget > QFrame#stagedFiles, CommitChangesWidget > QFrame#unstagedFiles, CommitChangesWidget > QFrame#untrackedFiles, #JobContainerHeader
 {
     max-height: 30px;
     min-height: 30px;
@@ -271,7 +279,8 @@ CommitChangesWidget > QFrame#stagedFiles, CommitChangesWidget > QFrame#unstagedF
 
 FileDiffView
 {
-    font-family: "Ubuntu Mono";
+    font-family: "DejaVu Sans Mono";
+    font-size: 8pt;
 }
 
 #leCommitTitle
@@ -528,6 +537,7 @@ QLabel#normalLabel
     padding-left: 5px;
     max-height: 22px;
     min-height: 22px;
+    font-size: 9pt;
 }
 
 QLabel#numberLabel
@@ -538,6 +548,7 @@ QLabel#numberLabel
     border-right-style: solid;
     max-height: 22px;
     min-height: 22px;
+    font-size: 9pt;
 }
 
 QLabel#authorFirstOfItsName, QLabel#authorPrimusInterPares
@@ -549,7 +560,7 @@ QLabel#authorFirstOfItsName, QLabel#authorPrimusInterPares
     min-height: 21px;
 }
 
-ClickableFrame#firstOfItsName, ClickableFrame#primusInterPares
+ButtonLink#firstOfItsName, ButtonLink#primusInterPares
 {
     padding: 2px;
     border: 0;
@@ -557,7 +568,7 @@ ClickableFrame#firstOfItsName, ClickableFrame#primusInterPares
     min-height: 21px;
 }
 
-QLabel#authorFirstOfItsName, ClickableFrame#firstOfItsName
+QLabel#authorFirstOfItsName, ButtonLink#firstOfItsName
 {
     border-top-width: 1px;
     border-top-style: solid;
@@ -674,6 +685,7 @@ QSpinBox
     border-width: 1px;
     max-height: 25px;
     min-height: 25px;
+    padding-left: 10px;
 }
 
 QSpinBox::up-button
@@ -727,3 +739,151 @@ QDialog > QPushButton
    padding-top: 10px;
 }
 
+/* GitServerWidget */
+#IssuesHeaderFrame, #IssuesHeaderFrameBig
+{
+   padding: 10px;
+}
+
+#IssuesHeaderFrameBig
+{
+    max-height: 40px;
+    min-height: 40px;
+}
+
+#IssuesFooterFrame
+{
+   min-height: 10px;
+   max-height: 10px;
+}
+
+#ButtonIssuesHeaderFrame
+{
+   max-height: 20px;
+   min-height: 20px;
+   border-style: solid;
+   border-width: 1px;
+}
+
+#HeaderTitle
+{
+   font-variant: small-caps;
+   font-size: 12pt;
+   font-weight: bold;
+}
+
+/* IssueButton */
+ButtonLink#IssueTitle
+{
+   padding: 0;
+   font-size: 11pt;
+   font-weight: bold;
+}
+
+#CreatorLink
+{
+   padding: 0;
+}
+
+#IssueLabel
+{
+   padding-left: 5px;
+}
+
+#IssueDescription
+{
+   border-radius: 5px;
+}
+
+#IssueIntro
+{
+   border-radius: 10px;
+}
+
+#IssueIntroApproved
+{
+   border-radius: 10px;
+}
+
+#IssueIntroChangesRequested
+{
+   border-radius: 10px;
+}
+
+#IssueIntroCommented
+{
+   border-radius: 10px;
+}
+
+#CodeReviewComment
+{
+   border-radius: 10px;
+}
+
+IssueDetailedView QTextEdit
+{
+   border: none;
+}
+
+QToolButton#ViewBtnOption:checked, QToolButton#ViewBtnOption:checked:hover
+{
+   border-width: 1px;
+   border-style: solid;
+}
+
+PrChangesList FileDiffView
+{
+   border: 0;
+}
+
+#ChangeFileName
+{
+   font-weight: bold;
+}
+
+#ChangeHeaderFrame
+{
+   padding: 10px;
+}
+
+SourceCodeReview > FileDiffView, #PrChangeListItem > FileDiffView
+{
+   border: 0;
+   font-size: 8pt;
+}
+
+SourceCodeReview QLabel
+{
+   padding: 10px;
+   font-weight: bold;
+   border-bottom-style: solid;
+   border-bottom-width: 1px;
+}
+
+#OutdatedLabel
+{
+   border-radius: 7px;
+   padding: 5px;
+}
+
+#AddReviewInput
+{
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 10px;
+   padding: 5px;
+}
+
+/* JENKINS */
+#JenkinsWidget, #JobButton, #JobContainerScrollArea
+{
+   background: transparent;
+   outline: none;
+   border: none;
+}
+
+#teComment
+{
+   border-style: solid;
+   border-width: 1px;
+}

@@ -18,11 +18,10 @@
 #include <QTextEdit>
 #include <QVBoxLayout>
 #include <QLabel>
-#include <QScrollArea>
 #include <QFile>
 #include <QMessageBox>
 
-MergeWidget::MergeWidget(const QSharedPointer<RevisionsCache> &gitQlientCache, const QSharedPointer<GitBase> &git,
+MergeWidget::MergeWidget(const QSharedPointer<GitCache> &gitQlientCache, const QSharedPointer<GitBase> &git,
                          QWidget *parent)
    : QFrame(parent)
    , mGitQlientCache(gitQlientCache)
@@ -109,7 +108,7 @@ void MergeWidget::configure(const RevisionFiles &files, ConflictReason reason)
    mMergedFiles->clear();
    mFileDiff->clear();
 
-   QFile mergeMsg(mGit->getWorkingDir() + "/.git/MERGE_MSG");
+   QFile mergeMsg(QString(mGit->getGitQlientSettingsDir() + QString::fromUtf8("/MERGE_MSG")));
 
    if (mergeMsg.open(QIODevice::ReadOnly))
    {
@@ -152,7 +151,7 @@ void MergeWidget::changeDiffView(QListWidgetItem *item)
    const auto file = item->text();
    const auto wip = mGitQlientCache->getCommitInfo(CommitInfo::ZERO_SHA);
 
-   mFileDiff->configure(CommitInfo::ZERO_SHA, wip.parent(0), mGit->getWorkingDir() + "/" + file);
+   mFileDiff->configure(CommitInfo::ZERO_SHA, wip.parent(0), mGit->getWorkingDir() + "/" + file, false);
 }
 
 void MergeWidget::abort()

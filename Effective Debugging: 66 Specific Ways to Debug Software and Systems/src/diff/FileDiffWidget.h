@@ -33,6 +33,9 @@ class QPushButton;
 class CheckBox;
 class FileEditor;
 class QStackedWidget;
+class QLabel;
+class QLineEdit;
+class QPlainTextEdit;
 
 /*!
  \brief The FileDiffWidget creates the layout that contains all the widgets related with the creation of the diff of a
@@ -69,7 +72,7 @@ public:
     \param git The git object to perform Git operations.
     \param parent The parent widget if needed.
    */
-   explicit FileDiffWidget(const QSharedPointer<GitBase> &git, QSharedPointer<RevisionsCache> cache,
+   explicit FileDiffWidget(const QSharedPointer<GitBase> &git, QSharedPointer<GitCache> cache,
                            QWidget *parent = nullptr);
 
    /*!
@@ -91,7 +94,8 @@ public:
     \param editMode Enters edit mode directly.
     \return bool Returns true if the configuration was applied, otherwise false.
    */
-   bool configure(const QString &currentSha, const QString &previousSha, const QString &file, bool editMode = false);
+   bool configure(const QString &currentSha, const QString &previousSha, const QString &file, bool isCached,
+                  bool editMode = false);
 
    /**
     * @brief setFileVsFileEnable Enables the widget to show file vs file view.
@@ -112,6 +116,7 @@ public:
 
 private:
    QString mCurrentFile;
+   bool mIsCached = false;
    QPushButton *mBack = nullptr;
    QPushButton *mGoPrevious = nullptr;
    QPushButton *mGoNext = nullptr;
@@ -121,23 +126,18 @@ private:
    QPushButton *mSave = nullptr;
    QPushButton *mStage = nullptr;
    QPushButton *mRevert = nullptr;
+   QLabel *mFileNameLabel = nullptr;
+   QFrame *mTitleFrame = nullptr;
    FileDiffView *mNewFile = nullptr;
+   QLineEdit *mSearchOld = nullptr;
    FileDiffView *mOldFile = nullptr;
    QVector<int> mModifications;
    bool mFileVsFile = false;
-   QVector<DiffInfo::ChunkInfo> mChunks;
+   DiffInfo mChunks;
    int mCurrentChunkLine = 0;
    FileEditor *mFileEditor = nullptr;
    QStackedWidget *mViewStackedWidget = nullptr;
 
-   /**
-    * @brief processDiff Process the diff to configure the navigation parameters.
-    * @param text
-    * @param newFileData
-    * @param oldFileData
-    */
-   void processDiff(const QString &text, QPair<QStringList, QVector<DiffInfo::ChunkInfo>> &newFileData,
-                    QPair<QStringList, QVector<DiffInfo::ChunkInfo>> &oldFileData);
    /**
     * @brief moveChunkUp Moves to the previous diff chunk.
     */
@@ -146,10 +146,6 @@ private:
     * @brief moveChunkDown Moves to the following diff chunk.
     */
    void moveChunkDown();
-   /**
-    * @brief moveBottomChunk Moves to the last diff chunk.
-    */
-   void moveBottomChunk();
 
    /**
     * @brief enterEditionMode Enters edition mode
@@ -169,4 +165,6 @@ private:
     * @brief revertFile Revert all the changes to the file.
     */
    void revertFile();
+
+   void stageChunk(const QString &id);
 };

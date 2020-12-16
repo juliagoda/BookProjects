@@ -56,6 +56,8 @@
 
 class FileDiffHighlighter;
 
+class LineNumberArea;
+
 /*!
  \brief The FileDiffView is an overload QPlainTextEdit class used to show the contents of a file diff between two
  commits.
@@ -72,6 +74,12 @@ signals:
     */
    void signalScrollChanged(int value);
 
+   /**
+    * @brief signalStageChunk Signal triggered when the user orders to stage a chunk.
+    * @param id The internal chunk id.
+    */
+   void signalStageChunk(const QString &id);
+
 public:
    /*!
     \brief Default constructor.
@@ -85,18 +93,45 @@ public:
     */
    ~FileDiffView();
 
+   void addNumberArea(LineNumberArea *numberArea);
+
    /**
     * @brief loadDiff Loads the text edit based on a diff text.
     * @param text The text representing a diff
     * @return True if correctly loaded, otherwise false.
     */
-   void loadDiff(QString text, const QVector<DiffInfo::ChunkInfo> &fileDiffInfo);
+   void loadDiff(const QString &text,
+                 const QVector<ChunkDiffInfo::ChunkInfo> &fileDiffInfo = QVector<ChunkDiffInfo::ChunkInfo>());
 
    /**
     * @brief moveScrollBarToPos Moves the vertical scroll bar to the value defined in @p value.
     * @param value The new scroll bar value.
     */
    void moveScrollBarToPos(int value);
+
+   /**
+    * @brief setStartingLine Makes the widget start from the line @p lineNumber.
+    * @param lineNumber The starting line number.
+    */
+   void setStartingLine(int lineNumber) { mStartingLine = lineNumber; }
+
+   /**
+    * @brief setUnifiedDiff Sets the diff as unified view.
+    * @param unified True if unified view must be shown.
+    */
+   void setUnifiedDiff(bool unified) { mUnified = unified; }
+
+   /**
+    * @brief getHeight Gets the approximated height of the widget based on the text of the QTextDocument.
+    * @return The height.
+    */
+   int getHeight() const;
+
+   /**
+    * @brief getLineHeigth Method that returns the height value of the rows.
+    * @return The height of a row.
+    */
+   int getLineHeigth() const;
 
 protected:
    /*!
@@ -105,6 +140,20 @@ protected:
     \param event The resize event.
    */
    void resizeEvent(QResizeEvent *event) override;
+
+   /**
+    * @brief eventFilter Custom event filter to enable the mechanism of storing comments (used by Jenkins view).
+    * @param target The target object of the event.
+    * @param event The event that was triggered.
+    * @return True if filtered, otherwise false.
+    */
+   bool eventFilter(QObject *target, QEvent *event) override;
+
+   /**
+    * @brief showStagingMenu Shows the context menu to stage lines or chunks.
+    * @param cursorPos The curren position of the mouse cursor.
+    */
+   void showStagingMenu(const QPoint &cursorPos);
 
 private:
    /*!
@@ -122,33 +171,18 @@ private:
    void updateLineNumberArea(const QRect &rect, int dy);
 
    /*!
-    \brief Method called by the line number area to paint the content of the QPlainTextEdit.
-
-    \param event The paint event.
-    */
-   void lineNumberAreaPaintEvent(QPaintEvent *event);
-
-   /*!
     \brief Returns the width of the line number area.
 
     \return int The width in pixels.
     */
    int lineNumberAreaWidth();
 
-   class LineNumberArea : public QWidget
-   {
-   public:
-      LineNumberArea(FileDiffView *editor);
-
-      QSize sizeHint() const override;
-
-   protected:
-      void paintEvent(QPaintEvent *event) override;
-
-   private:
-      FileDiffView *fileDiffWidget;
-   };
-
+   QVector<ChunkDiffInfo::ChunkInfo> mFileDiffInfo;
    LineNumberArea *mLineNumberArea = nullptr;
    FileDiffHighlighter *mDiffHighlighter = nullptr;
+   int mStartingLine = 0;
+   bool mUnified = false;
+   int mRow = -1;
+
+   friend class LineNumberArea;
 };

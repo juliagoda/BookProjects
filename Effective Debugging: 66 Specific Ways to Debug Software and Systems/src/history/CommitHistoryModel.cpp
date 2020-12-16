@@ -2,17 +2,19 @@
 
 #include <CommitHistoryColumns.h>
 #include <CommitInfo.h>
-#include <RevisionsCache.h>
+#include <GitCache.h>
+#include <GitServerCache.h>
 #include <GitBase.h>
 
 #include <QDateTime>
 #include <QLocale>
 
-CommitHistoryModel::CommitHistoryModel(const QSharedPointer<RevisionsCache> &cache, const QSharedPointer<GitBase> &git,
-                                       QObject *p)
+CommitHistoryModel::CommitHistoryModel(const QSharedPointer<GitCache> &cache, const QSharedPointer<GitBase> &git,
+                                       const QSharedPointer<GitServerCache> &gitServerCache, QObject *p)
    : QAbstractItemModel(p)
    , mCache(cache)
    , mGit(git)
+   , mGitServerCache(gitServerCache)
 {
    mColumns.insert(CommitHistoryColumns::TreeViewIcon, "");
    mColumns.insert(CommitHistoryColumns::Graph, "Graph");
@@ -101,12 +103,16 @@ QVariant CommitHistoryModel::getToolTipData(const CommitInfo &r) const
 
    auto tooltip = sha == CommitInfo::ZERO_SHA
        ? QString()
-       : QString("<p>%1 - %2<p></p>%3</p>%4")
+       : QString("<p>%1 - %2</p><p>%3</p>%4%5")
              .arg(r.author().split("<").first(), d.toString(locale.dateTimeFormat(QLocale::ShortFormat)), sha,
-                  auxMessage);
+                  !auxMessage.isEmpty() ? QString("<p>%1</p>").arg(auxMessage) : "",
+                  r.isSigned() ? QString::fromUtf8("<p>Commit signed!</p><p> GPG key: %1</p>").arg(r.getGpgKey()) : "");
 
-   if (const auto pr = mCache->getPullRequestStatus(sha); pr.isValid())
-      tooltip.append(QString("<p><b>PR state: </b>%1.</p>").arg(pr.state.state));
+   if (mGitServerCache)
+   {
+      if (const auto pr = mGitServerCache->getPullRequest(sha); pr.isValid())
+         tooltip.append(QString("<p><b>PR state: </b>%1.</p>").arg(pr.state.state));
+   }
 
    return tooltip;
 }
