@@ -1,19 +1,18 @@
 #include <CommitInfoWidget.h>
 #include <CommitInfoPanel.h>
-#include <RevisionsCache.h>
+#include <GitCache.h>
 #include <CommitInfo.h>
 #include <FileListWidget.h>
 
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QDateTime>
-#include <QScrollArea>
 
 #include <QLogger.h>
 
 using namespace QLogger;
 
-CommitInfoWidget::CommitInfoWidget(const QSharedPointer<RevisionsCache> &cache, const QSharedPointer<GitBase> &git,
+CommitInfoWidget::CommitInfoWidget(const QSharedPointer<GitCache> &cache, const QSharedPointer<GitBase> &git,
                                    QWidget *parent)
    : QWidget(parent)
    , mCache(cache)
@@ -32,7 +31,7 @@ CommitInfoWidget::CommitInfoWidget(const QSharedPointer<RevisionsCache> &cache, 
    verticalLayout->addWidget(fileListWidget);
 
    connect(fileListWidget, &FileListWidget::itemDoubleClicked, this,
-           [this](QListWidgetItem *item) { emit signalOpenFileCommit(mCurrentSha, mParentSha, item->text()); });
+           [this](QListWidgetItem *item) { emit signalOpenFileCommit(mCurrentSha, mParentSha, item->text(), false); });
    connect(fileListWidget, &FileListWidget::signalShowFileHistory, this, &CommitInfoWidget::signalShowFileHistory);
    connect(fileListWidget, &FileListWidget::signalEditFile, this, &CommitInfoWidget::signalEditFile);
 }

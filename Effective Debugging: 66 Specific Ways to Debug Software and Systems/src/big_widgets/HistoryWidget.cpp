@@ -35,11 +35,12 @@
 
 using namespace QLogger;
 
-HistoryWidget::HistoryWidget(const QSharedPointer<RevisionsCache> &cache, const QSharedPointer<GitBase> git,
-                             QWidget *parent)
+HistoryWidget::HistoryWidget(const QSharedPointer<GitCache> &cache, const QSharedPointer<GitBase> git,
+                             const QSharedPointer<GitServerCache> &gitServerCache, QWidget *parent)
    : QFrame(parent)
    , mGit(git)
    , mCache(cache)
+   , mGitServerCache(gitServerCache)
    , mReturnFromFull(new QPushButton())
 {
    mCommitInfoWidget = new CommitInfoWidget(mCache, git);
@@ -79,8 +80,8 @@ HistoryWidget::HistoryWidget(const QSharedPointer<RevisionsCache> &cache, const 
    mSearchInput->setPlaceholderText(tr("Press Enter to search by SHA or log message..."));
    connect(mSearchInput, &QLineEdit::returnPressed, this, &HistoryWidget::search);
 
-   mRepositoryModel = new CommitHistoryModel(mCache, git);
-   mRepositoryView = new CommitHistoryView(mCache, git);
+   mRepositoryModel = new CommitHistoryModel(mCache, git, mGitServerCache);
+   mRepositoryView = new CommitHistoryView(mCache, git, mGitServerCache);
 
    connect(mRepositoryView, &CommitHistoryView::signalViewUpdated, this, &HistoryWidget::signalViewUpdated);
    connect(mRepositoryView, &CommitHistoryView::signalOpenDiff, this, [this](const QString &sha) {
@@ -100,10 +101,12 @@ HistoryWidget::HistoryWidget(const QSharedPointer<RevisionsCache> &cache, const 
    connect(mRepositoryView, &CommitHistoryView::signalCherryPickConflict, this,
            &HistoryWidget::signalCherryPickConflict);
    connect(mRepositoryView, &CommitHistoryView::signalPullConflict, this, &HistoryWidget::signalPullConflict);
+   connect(mRepositoryView, &CommitHistoryView::showPrDetailedView, this, &HistoryWidget::showPrDetailedView);
 
    mRepositoryView->setObjectName("historyGraphView");
    mRepositoryView->setModel(mRepositoryModel);
-   mRepositoryView->setItemDelegate(mItemDelegate = new RepositoryViewDelegate(cache, git, mRepositoryView));
+   mRepositoryView->setItemDelegate(mItemDelegate
+                                    = new RepositoryViewDelegate(cache, git, mGitServerCache, mRepositoryView));
    mRepositoryView->setEnabled(true);
 
    mBranchesWidget = new BranchesWidget(mCache, git);
@@ -362,7 +365,7 @@ void HistoryWidget::mergeBranch(const QString &current, const QString &branchToM
 
    QApplication::restoreOverrideCursor();
 
-   if (ret.output.toString().contains("merge failed", Qt::CaseInsensitive))
+   if (!ret.success)
    {
       QMessageBox msgBox(QMessageBox::Critical, tr("Merge failed"),
                          QString("There were problems during the merge. Please, see the detailed description for more "
@@ -467,16 +470,16 @@ void HistoryWidget::cherryPickCommit()
    }
 }
 
-void HistoryWidget::showFileDiff(const QString &sha, const QString &parentSha, const QString &fileName)
+void HistoryWidget::showFileDiff(const QString &sha, const QString &parentSha, const QString &fileName, bool isCached)
 {
    if (sha == CommitInfo::ZERO_SHA)
    {
-      mFileDiff->configure(sha, parentSha, fileName);
+      mFileDiff->configure(sha, parentSha, fileName, isCached);
       mCenterStackedWidget->setCurrentIndex(static_cast<int>(Pages::FileDiff));
       mBranchesWidget->forceMinimalView();
    }
    else
-      emit signalShowDiff(sha, parentSha, fileName);
+      emit signalShowDiff(sha, parentSha, fileName, isCached);
 }
 
 void HistoryWidget::showFileDiffEdition(const QString &sha, const QString &parentSha, const QString &fileName)
@@ -488,5 +491,5 @@ void HistoryWidget::showFileDiffEdition(const QString &sha, const QString &paren
       mBranchesWidget->forceMinimalView();
    }
    else
-      emit signalShowDiff(sha, parentSha, fileName);
+      emit signalShowDiff(sha, parentSha, fileName, false);
 }

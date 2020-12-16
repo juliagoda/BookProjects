@@ -1,10 +1,10 @@
-﻿#include "FileBlameWidget.h"
+#include "FileBlameWidget.h"
 
-#include <RevisionsCache.h>
+#include <GitCache.h>
 #include <FileDiffView.h>
 #include <GitHistory.h>
 #include <CommitInfo.h>
-#include <ClickableFrame.h>
+#include <ButtonLink.hpp>
 
 #include <QGridLayout>
 #include <QLabel>
@@ -17,15 +17,15 @@
 namespace
 {
 static const int kTotalColors = 8;
-static const std::array<QString, kTotalColors> kBorderColors { { "z25, 65, 99", "36, 95, 146", "44, 116, 177",
-                                                                 "56, 136, 205", "87, 155, 213", "118, 174, 221",
-                                                                 "150, 192, 221", "197, 220, 240" } };
+static const std::array<const char *, kTotalColors> kBorderColors { { "25, 65, 99", "36, 95, 146", "44, 116, 177",
+                                                                      "56, 136, 205", "87, 155, 213", "118, 174, 221",
+                                                                      "150, 192, 221", "197, 220, 240" } };
 qint64 kSecondsNewest = 0;
 qint64 kSecondsOldest = QDateTime::currentDateTime().toSecsSinceEpoch();
 qint64 kIncrementSecs = 0;
 }
 
-FileBlameWidget::FileBlameWidget(const QSharedPointer<RevisionsCache> &cache, const QSharedPointer<GitBase> &git,
+FileBlameWidget::FileBlameWidget(const QSharedPointer<GitCache> &cache, const QSharedPointer<GitBase> &git,
                                  QWidget *parent)
    : QFrame(parent)
    , mCache(cache)
@@ -46,8 +46,8 @@ FileBlameWidget::FileBlameWidget(const QSharedPointer<RevisionsCache> &cache, co
    mInfoFont.setPointSize(9);
 
    mCodeFont = QFont(mInfoFont);
-   mCodeFont.setFamily("Ubuntu Mono");
-   mCodeFont.setPointSize(10);
+   mCodeFont.setFamily("DejaVu Sans Mono");
+   mCodeFont.setPointSize(8);
 
    mScrollArea = new QScrollArea();
    mScrollArea->setWidget(mAnotation);
@@ -166,7 +166,7 @@ void FileBlameWidget::formatAnnotatedFile(const QVector<Annotation> &annotations
    auto labelRowSpan = 1;
    QLabel *dateLabel = nullptr;
    QLabel *authorLabel = nullptr;
-   ClickableFrame *messageLabel = nullptr;
+   ButtonLink *messageLabel = nullptr;
 
    const auto annotationLayout = new QGridLayout();
    annotationLayout->setContentsMargins(QMargins());
@@ -268,7 +268,7 @@ QLabel *FileBlameWidget::createAuthorLabel(const QString &author, bool isFirst)
    return authorLabel;
 }
 
-ClickableFrame *FileBlameWidget::createMessageLabel(const QString &sha, bool isFirst)
+ButtonLink *FileBlameWidget::createMessageLabel(const QString &sha, bool isFirst)
 {
    const auto revision = mCache->getCommitInfo(sha);
    auto commitMsg = QString("Local changes");
@@ -283,12 +283,12 @@ ClickableFrame *FileBlameWidget::createMessageLabel(const QString &sha, bool isF
       commitMsg = log;
    }
 
-   const auto messageLabel = new ClickableFrame(commitMsg, Qt::AlignTop | Qt::AlignLeft);
+   const auto messageLabel = new ButtonLink(commitMsg);
    messageLabel->setObjectName(isFirst ? QString("primusInterPares") : QString("firstOfItsName"));
    messageLabel->setToolTip(QString("<p>%1</p><p>%2</p>").arg(sha, commitMsg));
    messageLabel->setFont(mInfoFont);
 
-   connect(messageLabel, &ClickableFrame::clicked, this, [this, sha]() { emit signalCommitSelected(sha); });
+   connect(messageLabel, &ButtonLink::clicked, this, [this, sha]() { emit signalCommitSelected(sha); });
 
    return messageLabel;
 }
@@ -306,7 +306,7 @@ QLabel *FileBlameWidget::createNumLabel(const Annotation &annotation, int row)
       const auto dtSinceEpoch = annotation.dateTime.toSecsSinceEpoch();
       const auto colorIndex = qCeil((kSecondsNewest - dtSinceEpoch) / kIncrementSecs);
       numberLabel->setStyleSheet(
-          QString("QLabel { border-left: 5px solid rgb(%1) }").arg(kBorderColors.at(colorIndex)));
+          QString("QLabel { border-left: 5px solid rgb(%1) }").arg(QString::fromUtf8(kBorderColors.at(colorIndex))));
    }
    else
       numberLabel->setStyleSheet("QLabel { border-left: 5px solid #D89000 }");

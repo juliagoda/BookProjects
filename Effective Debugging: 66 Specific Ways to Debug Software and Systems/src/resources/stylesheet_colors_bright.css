@@ -119,7 +119,7 @@ QListWidget::item:disabled
     color: #606162;
 }
 
-CommitHistoryView, FullDiffWidget > QTextEdit, QListWidget, FileListWidget, QTreeWidget
+CommitHistoryView, FullDiffWidget > QPlainTextEdit, QListWidget, FileListWidget, QTreeWidget
 {
     background-color: white;
     color: black;
@@ -160,7 +160,7 @@ QMenu::separator
    background: #3f4043;
 }
 
-FullDiffWidget > QTextEdit, CommitChangesWidget > QLineEdit,  #leCommitTitle, #teDescription, #leAuthorName, #leAuthorEmail
+FullDiffWidget > QPlainTextEdit, CommitChangesWidget > QLineEdit,  #leCommitTitle, #teDescription, #leAuthorName, #leAuthorEmail
 {
     border-color: #404142;
 }
@@ -185,7 +185,8 @@ QLabel#lCounter
 }
 
 CommitChangesWidget > QFrame#stagedFiles, CommitChangesWidget > QFrame#unstagedFiles, CommitChangesWidget > QFrame#untrackedFiles,
-CommitChangesWidget > QFrame#untrackedFiles > QLabel, CommitChangesWidget > QFrame#unstagedFiles > QLabel, CommitChangesWidget > QFrame#stagedFiles > QLabel
+CommitChangesWidget > QFrame#untrackedFiles > QLabel, CommitChangesWidget > QFrame#unstagedFiles > QLabel, CommitChangesWidget > QFrame#stagedFiles > QLabel,
+#JobContainerHeader
 {
     background: #404142;
     color: white;
@@ -401,20 +402,10 @@ QLabel#numberLabel
     background-color: white;
 }
 
-QLabel#authorFirstOfItsName, ClickableFrame#firstOfItsName
+QLabel#authorFirstOfItsName, ButtonLink#firstOfItsName
 {
     border-top-color: #606162;
     background-color: #C6C6C7;
-}
-
-ClickableFrame#firstOfItsName::hover, ClickableFrame#primusInterPares::hover
-{
-    background-color: #EFEFEF;
-}
-
-ClickableFrame#firstOfItsName::pressed,  ClickableFrame#primusInterPares::pressed
-{
-    background-color: #EFEFEF;
 }
 
 QProgressDialog
@@ -627,5 +618,133 @@ RepoConfigDlg > QTabBar::tab:!selected:hover
 RepoConfigDlg > QTabBar::tab:disabled
 {
     color: #606162;
+}
+
+#IssuesViewFrame
+{
+   background: #C6C6C7;
+}
+
+#IssueDescription
+{
+  background: white;
+  color: black;
+}
+
+#IssueIntro
+{
+   border-radius: 10px;
+   background: white;
+}
+
+#IssueIntroApproved
+{
+   border-radius: 10px;
+   background: #729943;
+}
+
+#IssueIntroChangesRequested
+{
+   border-radius: 10px;
+   background: #D89000;
+}
+
+#IssueIntroCommented
+{
+   border-radius: 10px;
+   background: #404142;
+}
+
+#CodeReviewComment
+{
+   border-radius: 10px;
+   background-color: #505152;
+}
+
+IssueDetailedView QTextEdit
+{
+   background: transparent;
+   color: black;
+}
+
+PrChangesList FileDiffView
+{
+   background: #404142;
+}
+
+#PrChangeListItem
+{
+   background: transparent;
+}
+
+#ChangeHeaderFrame
+{
+   background: #202122;
+}
+
+SourceCodeReview QLabel
+{
+    background: #2E2F30;
+    border-bottom-color: #D89000;
+}
+
+#OutdatedLabel
+{
+    background: #C8C8C8;
+    color: black;
+}
+
+#LineNumberArea
+{
+   border-right: 1px solid white;
+}
+
+#AddReviewInput
+{
+   background: #505152;
+   border-color: #2E2F30;
+}
+
+#JobContainer
+{
+   background: #C6C6C7;
+}
+
+#ButtonIssuesHeaderFrame
+{
+   background: #404142;
+   border-color: #D89000;
+}
+
+#ButtonIssuesHeaderFrame:hover
+{
+   background: #606162;
+}
+
+#IssueItem
+{
+   background-color: #C6C6C7;
+   border-bottom: 1px solid #404142;
+}
+
+#IssuesFooterFrame, #IssuesFooterFramePagination
+{
+   border-bottom: 1px solid #C6C6C7;
+   background-color: #C6C6C7;
+}
+
+QScrollArea, #TransparentScrollArea
+{
+   background: transparent;
+}
+
+#IssuesHeaderFrame, #IssuesHeaderFrameBig
+{
+   background-color: #404142;
+}
+
+#IssuesWidget
+{
+   background-color: #C6C6C7;
 }
 

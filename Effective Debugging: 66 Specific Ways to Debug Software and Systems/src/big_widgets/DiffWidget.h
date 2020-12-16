@@ -32,7 +32,7 @@ class QPinnableTabWidget;
 class IDiffWidget;
 class QVBoxLayout;
 class CommitDiffWidget;
-class RevisionsCache;
+class GitCache;
 
 /*!
  \brief The DiffWidget class creates the layout to display the dif information for both files and commits.
@@ -72,8 +72,7 @@ public:
     \param cache The internal repository cache for the repository.
     \param parent The parent wiget if needed.
    */
-   explicit DiffWidget(const QSharedPointer<GitBase> git, QSharedPointer<RevisionsCache> cache,
-                       QWidget *parent = nullptr);
+   explicit DiffWidget(const QSharedPointer<GitBase> git, QSharedPointer<GitCache> cache, QWidget *parent = nullptr);
    /*!
     \brief Destructor
 
@@ -99,7 +98,7 @@ public:
     \param file The file to show the diff of.
     \return bool Returns true if the file diff was loaded correctly.
    */
-   bool loadFileDiff(const QString &sha, const QString &previousSha, const QString &file);
+   bool loadFileDiff(const QString &sha, const QString &previousSha, const QString &file, bool isCached);
    /*!
     \brief Loads a full commit diff.
 
@@ -111,7 +110,7 @@ public:
 
 private:
    QSharedPointer<GitBase> mGit;
-   QSharedPointer<RevisionsCache> mCache;
+   QSharedPointer<GitCache> mCache;
    CommitInfoPanel *mInfoPanelBase = nullptr;
    CommitInfoPanel *mInfoPanelParent = nullptr;
    QPinnableTabWidget *mCenterStackedWidget = nullptr;
