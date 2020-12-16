@@ -4,6 +4,7 @@
 #include "RealCloseButton.h"
 
 #include <QMenu>
+#include <QMessageBox>
 #include <QMouseEvent>
 #include <QTabBar>
 #include <QStyle>
@@ -219,34 +220,43 @@ void QPinnableTabWidget::pintTab()
 
 void QPinnableTabWidget::unpinTab()
 {
-   const auto closeBtn = new RealCloseButton();
-
-   tabBar()->setTabButton(
-       mClickedTab,
-       static_cast<QTabBar::ButtonPosition>(style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, this)),
-       closeBtn);
-
-   mTabState.remove(mClickedTab);
-
-   mLastPinTab = mTabState.count();
-
-   auto deletions = false;
-
-   for (auto pair : mTabState.toStdMap())
+   // only if this is not main site
+   if (mClickedTab > 0)
    {
-      if (pair.first > mClickedTab)
-      {
-         mTabState[pair.first - 1] = pair.second;
-         deletions = true;
-      }
+       // if mClickedTab is 0 or less then we would have a not needed button
+       const auto closeBtn = new RealCloseButton();
+
+       tabBar()->setTabButton(
+           mClickedTab,
+           static_cast<QTabBar::ButtonPosition>(style()->styleHint(QStyle::SH_TabBar_CloseButtonPosition, 0, this)),
+           closeBtn);
+
+       mTabState.remove(mClickedTab);
+
+       mLastPinTab = mTabState.count();
+
+       auto deletions = false;
+
+       for (auto pair : mTabState.toStdMap())
+       {
+          if (pair.first > mClickedTab)
+          {
+             mTabState[pair.first - 1] = pair.second;
+             deletions = true;
+          }
+       }
+
+       if (deletions)
+          mTabState.remove(mTabState.lastKey());
+
+       tabBar()->moveTab(mClickedTab, mLastPinTab);
+
+       connect(closeBtn, &RealCloseButton::clicked, this, [this]() { emit tabBar()->tabCloseRequested(mLastPinTab); });
+
+       mClickedTab = -1;
    }
-
-   if (deletions)
-      mTabState.remove(mTabState.lastKey());
-
-   tabBar()->moveTab(mClickedTab, mLastPinTab);
-
-   connect(closeBtn, &RealCloseButton::clicked, this, [this]() { emit tabBar()->tabCloseRequested(mLastPinTab); });
-
-   mClickedTab = -1;
+   else
+   {
+       QMessageBox::information(this, tr("Attempted Unpinning"), tr("Unpinning the first main tab with the main window is not possible."));
+   }
 }
