@@ -1,0 +1,143 @@
+(gdb) info pretty-printer
+global pretty-printers:
+  builtin
+    mpx_bound128
+(gdb) run
+Starting program: /home/juliagoda/BOOK/Third Book/BookProjects/build-GitQlient-Desktop-Debug/GitQlient 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+[New Thread 0x7ffff2e5a640 (LWP 16649)]
+[New Thread 0x7fffebfff640 (LWP 16650)]
+[New Thread 0x7fffe8c67640 (LWP 16651)]
+[New Thread 0x7fffde5a0640 (LWP 16652)]
+[New Thread 0x7fffddd9f640 (LWP 16653)]
+[New Thread 0x7fffdd59e640 (LWP 16654)]
+[New Thread 0x7fffdcd9d640 (LWP 16655)]
+[New Thread 0x7fffc7fff640 (LWP 16656)]
+[New Thread 0x7fffc77fe640 (LWP 16657)]
+[New Thread 0x7fffc6c48640 (LWP 16658)]
+[Detaching after fork from child process 16659]
+[New Thread 0x7fffc6447640 (LWP 16660)]
+[New Thread 0x7fffc5c46640 (LWP 16661)]
+[New Thread 0x7fffc5445640 (LWP 16662)]
+[Detaching after fork from child process 16663]
+[Detaching after fork from child process 16664]
+[New Thread 0x7fffc4c44640 (LWP 16665)]
+[Detaching after fork from child process 16666]
+[Detaching after fork from child process 16667]
+[Detaching after fork from child process 16668]
+[Detaching after fork from child process 16669]
+[Detaching after fork from child process 16670]
+[Detaching after fork from child process 16671]
+[Detaching after fork from child process 16672]
+[Detaching after fork from child process 16673]
+[Detaching after fork from child process 16674]
+[Detaching after fork from child process 16675]
+[Detaching after fork from child process 16676]
+[Detaching after fork from child process 16677]
+[Detaching after fork from child process 16678]
+[Detaching after fork from child process 16679]
+[Detaching after fork from child process 16680]
+[Detaching after fork from child process 16681]
+[Detaching after fork from child process 16682]
+Username for 'https://github.com': [Detaching after fork from child process 16686]
+[Detaching after fork from child process 16687]
+[Detaching after fork from child process 16688]
+[Detaching after fork from child process 16689]
+[Detaching after fork from child process 16690]
+[Detaching after fork from child process 16691]
+[Detaching after fork from child process 16692]
+[Detaching after fork from child process 16693]
+
+Thread 1 "GitQlient" received signal SIGSEGV, Segmentation fault.
+0x0000000000441642 in QString::QString (this=0x7fffffffe3a0, other=...) at /usr/include/qt/QtCore/qstring.h:1093
+1093    inline QString::QString(const QString &other) noexcept : d(other.d)
+(gdb) backtrace
+#0  0x0000000000441642 in QString::QString (this=0x7fffffffe3a0, other=...) at /usr/include/qt/QtCore/qstring.h:1093
+#1  0x000000000046e177 in GitQlientRepo::currentDir (this=0x0) at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlientRepo.h:118
+#2  0x000000000046b9f9 in GitQlient::~GitQlient (this=0x7fffffffe430, __in_chrg=<optimized out>)
+    at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:82
+#3  0x00000000004412a7 in main (argc=1, argv=0x7fffffffe598) at ../Specific-Ways-to Debug-Software and-Systems/src/main.cpp:36
+(gdb) frame 2
+#2  0x000000000046b9f9 in GitQlient::~GitQlient (this=0x7fffffffe430, __in_chrg=<optimized out>)
+    at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:82
+82               pinnedRepos.append(repoToRemove->currentDir());
+(gdb) list 82
+77         for (auto i = 1; i < totalTabs; ++i)
+78         {
+79            if (mRepos->isPinned(i))
+80            {
+81               auto repoToRemove = dynamic_cast<GitQlientRepo *>(mRepos->widget(i));
+82               pinnedRepos.append(repoToRemove->currentDir());
+83            }
+84         }
+85
+86         settings.setGlobalValue(GitQlientSettings::PinnedRepos, pinnedRepos);
+(gdb) print pinnedRepos
+$1 = {<QList<QString>> = {<QListSpecialMethods<QString>> = {<No data fields>}, {p = {static shared_null = {ref = {atomic = {_q_value = {<std::__atomic_base<int>> = {
+                  static _S_alignment = 4, _M_i = -1}, static is_always_lock_free = true}}}, alloc = 0, begin = 0, end = 0, array = {0x0}}, 
+        d = 0x7ffff6e8d450 <QListData::shared_null>}, d = 0x7ffff6e8d450 <QListData::shared_null>}}, <No data fields>}
+(gdb) print repoToRemove
+$2 = (GitQlientRepo *) 0x0
+(gdb) break 81
+Breakpoint 1 at 0x46b9a3: file ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp, line 81.
+(gdb) kill
+Kill the program being debugged? (y or n) y
+[Inferior 1 (process 17261) killed]
+(gdb) break 81   
+Note: breakpoint 1 also set at pc 0x46b9a3.
+Breakpoint 2 at 0x46b9a3: file ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp, line 81.
+(gdb) delete 2
+(gdb) run
+Starting program: /home/juliagoda/BOOK/Third Book/BookProjects/build-GitQlient-Desktop-Debug/GitQlient 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+[New Thread 0x7ffff2e5a640 (LWP 17543)]
+[New Thread 0x7fffebfff640 (LWP 17544)]
+[New Thread 0x7fffe8c67640 (LWP 17546)]
+[New Thread 0x7fffde5a0640 (LWP 17547)]
+[New Thread 0x7fffddd9f640 (LWP 17548)]
+[New Thread 0x7fffdd59e640 (LWP 17549)]
+[New Thread 0x7fffdcd9d640 (LWP 17550)]
+[New Thread 0x7fffc7fff640 (LWP 17551)]
+[New Thread 0x7fffc77fe640 (LWP 17552)]
+[New Thread 0x7fffc6c48640 (LWP 17553)]
+[Detaching after fork from child process 17554]
+[New Thread 0x7fffc6447640 (LWP 17555)]
+[New Thread 0x7fffc5c46640 (LWP 17556)]
+[New Thread 0x7fffc5445640 (LWP 17557)]
+[Detaching after fork from child process 17558]
+[Detaching after fork from child process 17559]
+[New Thread 0x7fffc4c44640 (LWP 17560)]
+[Detaching after fork from child process 17561]
+[Detaching after fork from child process 17562]
+[Detaching after fork from child process 17563]
+[Detaching after fork from child process 17564]
+[Detaching after fork from child process 17565]
+[Detaching after fork from child process 17566]
+[Detaching after fork from child process 17567]
+[Detaching after fork from child process 17568]
+[Detaching after fork from child process 17569]
+[Detaching after fork from child process 17570]
+[Detaching after fork from child process 17571]
+[Detaching after fork from child process 17572]
+[Detaching after fork from child process 17573]
+[Detaching after fork from child process 17574]
+[Detaching after fork from child process 17575]
+[Detaching after fork from child process 17576]
+[Detaching after fork from child process 17577]
+Username for 'https://github.com': [Detaching after fork from child process 17581]
+[Detaching after fork from child process 17582]
+[Detaching after fork from child process 17583]
+[Detaching after fork from child process 17584]
+
+Thread 1 "GitQlient" hit Breakpoint 1, GitQlient::~GitQlient (this=0x7fffffffe430, __in_chrg=<optimized out>)
+    at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:81
+81               auto repoToRemove = dynamic_cast<GitQlientRepo *>(mRepos->widget(i));
+(gdb) print mRepos
+$3 = (QPinnableTabWidget *) 0x9a9ae0
+(gdb) print i
+$4 = 1
+(gdb) print repoToRemove
+$5 = (GitQlientRepo *) 0xe67170
+
