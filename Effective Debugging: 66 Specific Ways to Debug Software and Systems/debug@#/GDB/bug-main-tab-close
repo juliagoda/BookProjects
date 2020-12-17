@@ -1,0 +1,112 @@
+(gdb) run
+Starting program: /home/juliagoda/BOOK/Third Book/BookProjects/build-GitQlient-Desktop-Debug/GitQlient 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+[New Thread 0x7ffff2e5a640 (LWP 10740)]
+[New Thread 0x7fffebfff640 (LWP 10741)]
+[New Thread 0x7fffe8c67640 (LWP 10742)]
+[New Thread 0x7fffde5a0640 (LWP 10743)]
+[New Thread 0x7fffddd9f640 (LWP 10744)]
+[New Thread 0x7fffdd59e640 (LWP 10745)]
+[New Thread 0x7fffdcd9d640 (LWP 10746)]
+[New Thread 0x7fffc7fff640 (LWP 10747)]
+[New Thread 0x7fffc77fe640 (LWP 10748)]
+
+Thread 1 "GitQlient" received signal SIGSEGV, Segmentation fault.
+0x0000000000441642 in QString::QString (this=0x7fffffffc5f0, other=...) at /usr/include/qt/QtCore/qstring.h:1093
+1093    inline QString::QString(const QString &other) noexcept : d(other.d)
+(gdb) backtrace
+#0  0x0000000000441642 in QString::QString (this=0x7fffffffc5f0, other=...) at /usr/include/qt/QtCore/qstring.h:1093
+#1  0x000000000046e177 in GitQlientRepo::currentDir (this=0x0) at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlientRepo.h:118
+#2  0x000000000046d7d6 in GitQlient::closeTab (this=0x7fffffffe430, tabIndex=0) at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:247
+#3  0x000000000046f7a7 in QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<int>, void, void (GitQlient::*)(int)>::call (f=
+    (void (GitQlient::*)(GitQlient * const, int)) 0x46d710 <GitQlient::closeTab(int)>, o=0x7fffffffe430, arg=0x7fffffffc7f0)
+    at /usr/include/qt/QtCore/qobjectdefs_impl.h:152
+#4  0x000000000046f43b in QtPrivate::FunctionPointer<void (GitQlient::*)(int)>::call<QtPrivate::List<int>, void> (f=
+    (void (GitQlient::*)(GitQlient * const, int)) 0x46d710 <GitQlient::closeTab(int)>, o=0x7fffffffe430, arg=0x7fffffffc7f0)
+    at /usr/include/qt/QtCore/qobjectdefs_impl.h:185
+#5  0x000000000046edbd in QtPrivate::QSlotObject<void (GitQlient::*)(int), QtPrivate::List<int>, void>::impl (which=1, this_=0xd6fff0, r=0x7fffffffe430, 
+    a=0x7fffffffc7f0, ret=0x0) at /usr/include/qt/QtCore/qobjectdefs_impl.h:418
+#6  0x00007ffff6dd9dd6 in ?? () from /usr/lib/libQt5Core.so.5
+#7  0x00007ffff7bc0b42 in QTabWidget::tabCloseRequested(int) () from /usr/lib/libQt5Widgets.so.5
+#8  0x000000000058c5cc in operator() (__closure=0xe45b30) at ../Specific-Ways-to Debug-Software and-Systems/src/QPinnableTabWidget/QPinnableTabWidget.cpp:197
+#9  0x000000000058d15d in QtPrivate::FunctorCall<QtPrivate::IndexesList<>, QtPrivate::List<>, void, QPinnableTabWidget::showContextMenu()::<lambda()> >::call(struct {...} &, void **) (f=..., arg=0x7fffffffc9e0) at /usr/include/qt/QtCore/qobjectdefs_impl.h:146
+#10 0x000000000058d105 in QtPrivate::Functor<QPinnableTabWidget::showContextMenu()::<lambda()>, 0>::call<QtPrivate::List<>, void>(struct {...} &, void *, void **) (
+    f=..., arg=0x7fffffffc9e0) at /usr/include/qt/QtCore/qobjectdefs_impl.h:256
+#11 0x000000000058d04a in QtPrivate::QFunctorSlotObject<QPinnableTabWidget::showContextMenu()::<lambda()>, 0, QtPrivate::List<>, void>::impl(int, QtPrivate::QSlotObjectBase *, QObject *, void **, bool *) (which=1, this_=0xe45b20, r=0x9ea8b0, a=0x7fffffffc9e0, ret=0x0) at /usr/include/qt/QtCore/qobjectdefs_impl.h:443
+#12 0x00007ffff6dd9dd6 in ?? () from /usr/lib/libQt5Core.so.5
+#13 0x00007ffff79e5f63 in QAction::triggered(bool) () from /usr/lib/libQt5Widgets.so.5
+#14 0x00007ffff79e8845 in QAction::activate(QAction::ActionEvent) () from /usr/lib/libQt5Widgets.so.5
+#15 0x00007ffff7b6a3ab in ?? () from /usr/lib/libQt5Widgets.so.5
+#16 0x00007ffff7b71ae2 in ?? () from /usr/lib/libQt5Widgets.so.5
+#17 0x00007ffff7a2db0e in QWidget::event(QEvent*) () from /usr/lib/libQt5Widgets.so.5
+#18 0x00007ffff79ec752 in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+#19 0x00007ffff79f387b in QApplication::notify(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+#20 0x00007ffff6da2a7a in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /usr/lib/libQt5Core.so.5
+#21 0x00007ffff79f287e in QApplicationPrivate::sendMouseEvent(QWidget*, QMouseEvent*, QWidget*, QWidget*, QWidget**, QPointer<QWidget>&, bool, bool) ()
+   from /usr/lib/libQt5Widgets.so.5
+#22 0x00007ffff7a467cf in ?? () from /usr/lib/libQt5Widgets.so.5
+#23 0x00007ffff7a4963f in ?? () from /usr/lib/libQt5Widgets.so.5
+#24 0x00007ffff79ec752 in QApplicationPrivate::notify_helper(QObject*, QEvent*) () from /usr/lib/libQt5Widgets.so.5
+#25 0x00007ffff6da2a7a in QCoreApplication::notifyInternal2(QObject*, QEvent*) () from /usr/lib/libQt5Core.so.5
+#26 0x00007ffff72fe594 in QGuiApplicationPrivate::processMouseEvent(QWindowSystemInterfacePrivate::MouseEvent*) () from /usr/lib/libQt5Gui.so.5
+#27 0x00007ffff72d3bb5 in QWindowSystemInterface::sendWindowSystemEvents(QFlags<QEventLoop::ProcessEventsFlag>) () from /usr/lib/libQt5Gui.so.5
+#28 0x00007ffff30f716c in ?? () from /usr/lib/libQt5XcbQpa.so.5
+--Type <RET> for more, q to quit, c to continue without paging--q
+Quit
+(gdb) frame 2
+#2  0x000000000046d7d6 in GitQlient::closeTab (this=0x7fffffffe430, tabIndex=0) at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:247
+247        QLog_Info("UI", QString("Removing repository {%1}").arg(repoToRemove->currentDir()));
+(gdb) display repoToRemove->currentDir()
+1: repoToRemove->currentDir() = 
+Thread 1 "GitQlient" received signal SIGSEGV, Segmentation fault.
+Disabling display 1 to avoid infinite recursion.
+0x0000000000441642 in QString::QString (this=0x7fffffffc4f0, other=...) at /usr/include/qt/QtCore/qstring.h:1093
+1093    inline QString::QString(const QString &other) noexcept : d(other.d)
+<error: The program being debugged was signaled while in a function called from GDB.
+GDB remains in the frame where the signal was received.
+To change this behavior use "set unwindonsignal on".
+Evaluation of the expression containing the function
+(GitQlientRepo::currentDir() const) will be abandoned.
+When the function is done executing, GDB will silently stop.>
+(gdb) print repoToRemove->currentDir()  
+No symbol "repoToRemove" in current context.
+(gdb) break ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:246
+Breakpoint 1 at 0x46d772: file ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp, line 247.
+(gdb) break ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:245
+Breakpoint 2 at 0x46d72f: file ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp, line 245.
+(gdb) run
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/juliagoda/BOOK/Third Book/BookProjects/build-GitQlient-Desktop-Debug/GitQlient 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+[New Thread 0x7ffff2e5a640 (LWP 10948)]
+[New Thread 0x7fffebfff640 (LWP 10949)]
+[New Thread 0x7fffe8c67640 (LWP 10950)]
+[New Thread 0x7fffde5a0640 (LWP 10951)]
+[New Thread 0x7fffddd9f640 (LWP 10952)]
+[New Thread 0x7fffdd59e640 (LWP 10953)]
+[New Thread 0x7fffdcd9d640 (LWP 10954)]
+[New Thread 0x7fffc7fff640 (LWP 10955)]
+[New Thread 0x7fffc77fe640 (LWP 10956)]
+
+Thread 1 "GitQlient" hit Breakpoint 2, GitQlient::closeTab (this=0x7fffffffe430, tabIndex=0)
+    at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:245
+245        auto repoToRemove = dynamic_cast<GitQlientRepo *>(mRepos->widget(tabIndex));
+(gdb) display repoToRemove
+2: repoToRemove = (GitQlientRepo *) 0xa3db50
+(gdb) display mRepos->widget(tabIndex)
+3: mRepos->widget(tabIndex) = <error: Couldn't find method QPinnableTabWidget::widget>
+(gdb) next
+
+Thread 1 "GitQlient" hit Breakpoint 1, GitQlient::closeTab (this=0x7fffffffe430, tabIndex=0)
+    at ../Specific-Ways-to Debug-Software and-Systems/src/big_widgets/GitQlient.cpp:247
+247        QLog_Info("UI", QString("Removing repository {%1}").arg(repoToRemove->currentDir()));
+2: repoToRemove = (GitQlientRepo *) 0x0
+3: mRepos->widget(tabIndex) = <error: Couldn't find method QPinnableTabWidget::widget>
+(gdb) display repoToRemove
+4: repoToRemove = (GitQlientRepo *) 0x0
+(gdb) print repoToRemove
+$1 = (GitQlientRepo *) 0x0
+ 
