@@ -1,0 +1,15 @@
+
+# look at the "error messages" file in tests@# directory
+# shows file, where the error occured
+
+[juliagoda@juliagoda build]$ make build
+[juliagoda@juliagoda build]$ cd build
+[juliagoda@juliagoda build]$ qmake ../GitQlientApp.pro
+[juliagoda@juliagoda build]$ make -k 2>&1 | awk -F: '/error:/ { print $1}' | sort -u
+../src/aux_widgets/GitQlientUpdater.cpp 
+
+
+# shows, how many times we find "error:" message in it:
+
+[juliagoda@juliagoda build]$ make -k 2>&1 | awk -F: '/error:/ { print $1}' | uniq -c
+      6 ../src/aux_widgets/GitQlientUpdater.cpp
