@@ -1,0 +1,8 @@
+
+]$ tail -f logs/GitQlient.log | fgrep -eError -eFatal -eWarning
+
+[Error] [Git] [14-01-2021 04:05:19.826] [000000000088e180] {IRestApi.cpp:28} Error #301 - Protocol "" is not known.  
+[Warning] [Git] [14-01-2021 04:05:20.006] [00000000010fbdb0] {GitBase.cpp:66} Git command {git config --get log.showSignature} has errors: 
+[Warning] [Git] [14-01-2021 04:05:21.799] [000000000088e180] {GitBase.cpp:66} Git command {git config --file .gitmodules --name-only --get-regexp path} has errors:
+[Error] [Git] [14-01-2021 04:05:19.826] [000000000088e180] {IRestApi.cpp:28} Error #301 - Protocol "" is not known. 
+ 

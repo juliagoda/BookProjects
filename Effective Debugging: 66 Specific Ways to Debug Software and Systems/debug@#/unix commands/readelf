@@ -1,0 +1,25 @@
+
+# useful links: 
+# https://www.geeksforgeeks.org/readelf-command-in-linux-with-examples/
+# https://linux.die.net/man/1/readelf
+
+# examples
+# when we need to look at symbols table
+# look at objdump as first
+
+
+]$ readelf -s -W *.o | grep 2a31
+  1631: 0000000000002a31     9 FUNC    GLOBAL DEFAULT  479 _ZThn16_N13GitQlientRepoD1Ev
+
+]$ readelf -s -W *.o | grep 2a6c
+  1535: 0000000000002a6c   316 FUNC    GLOBAL DEFAULT  479 _ZN13GitQlientRepo11updateCacheEv
+
+
+  OR
+  
+  
+]$ objdump -t *.o | grep 2a31
+0000000000002a31 g     F .text  0000000000000009 _ZThn16_N13GitQlientRepoD1Ev
+
+]$ objdump -t *.o | grep 2a6c
+0000000000002a6c g     F .text  000000000000013c _ZN13GitQlientRepo11updateCacheEv

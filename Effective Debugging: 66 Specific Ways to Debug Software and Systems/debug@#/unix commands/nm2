@@ -1,0 +1,42 @@
+
+]$ nm -S -l GitQlient.o | grep CommitChangesWidget
+]$ nm -S -l GitQlient.o | grep CommitInfo
+]$ nm -S -l GitQlient.o | grep CreateRepoDlg
+]$ nm -S -l GitQlient.o | grep FileDiffWidget
+]$ nm -S -l GitQlient.o | grep GitQlientRepo
+
+                 U _ZN13GitQlientRepo10repoOpenedERK7QString    /src/big_widgets/GitQlient.cpp:196
+                 U _ZN13GitQlientRepo13setRepositoryERK7QString /src/big_widgets/GitQlient.cpp:198
+                 U _ZN13GitQlientRepo14signalEditFileERK7QStringii      /src/big_widgets/GitQlient.cpp:194
+                 U _ZN13GitQlientRepo16staticMetaObjectE        /usr/include/qt/QtCore/qobject.h:268
+                 U _ZN13GitQlientRepo19signalOpenSubmoduleERK7QString   /src/big_widgets/GitQlient.cpp:195
+                 U _ZN13GitQlientRepoC1ERK7QStringP7QWidget     /src/big_widgets/GitQlient.cpp:191
+0000000000000000 00000000000000c4 W _ZN7QObject7connectIM13GitQlientRepoFvRK7QStringEM9GitQlientFvS4_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE    /usr/include/qt/QtCore/qobject.h:242
+0000000000000000 00000000000000c4 W _ZN7QObject7connectIM13GitQlientRepoFvRK7QStringiiEM9GitQlientFvS4_iiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESE_PKNSD_IT0_E6ObjectESJ_N2Qt14ConnectionTypeE        /usr/include/qt/QtCore/qobject.h:242
+0000000000000000 000000000000002d W _ZNK13GitQlientRepo10currentDirEv   /src/big_widgets/GitQlientRepo.h:118
+                 U _ZTI13GitQlientRepo  /src/big_widgets/GitQlient.cpp:81
+                 
+]$ nm -S -l GitQlient.o | grep GitQlientSettings
+
+                 U _ZN17GitQlientSettings10localValueERK7QStringS2_RK8QVariant  /src/big_widgets/GitQlient.cpp:276
+                 U _ZN17GitQlientSettings11globalValueERK7QStringRK8QVariant    /src/big_widgets/GitQlient.cpp:65
+                 U _ZN17GitQlientSettings11PinnedReposE /src/big_widgets/GitQlient.cpp:86
+                 U _ZN17GitQlientSettings14setGlobalValueERK7QStringRK8QVariant /src/big_widgets/GitQlient.cpp:86
+                 U _ZN17GitQlientSettings16setProjectOpenedERK7QString  /src/big_widgets/GitQlient.cpp:266
+0000000000000000 0000000000000020 W _ZN17GitQlientSettingsC1Ev  /src/big_widgets/GitQlientSettings.h:41
+0000000000000000 0000000000000020 W _ZN17GitQlientSettingsC2Ev  /src/big_widgets/GitQlientSettings.h:41
+0000000000000000 n _ZN17GitQlientSettingsC5Ev
+0000000000000000 000000000000001b W _ZN17GitQlientSettingsD1Ev  /src/big_widgets/GitQlientSettings.h:34
+0000000000000000 000000000000001b W _ZN17GitQlientSettingsD2Ev  /src/big_widgets/GitQlientSettings.h:34
+0000000000000000 n _ZN17GitQlientSettingsD5Ev
+                 U _ZN9QSettingsC1EP7QObject    /src/big_widgets/GitQlientSettings.h:41
+                 U _ZN9QSettingsD1Ev    /src/big_widgets/GitQlientSettings.h:34
+                 U _ZNK7GitBase23getGitQlientSettingsDirEv      /src/big_widgets/GitQlient.cpp:276
+                 
+]$ nm -S -l GitQlient.o | grep HistoryWidget
+
+# all the object files that refer to the symbol _ZNK13GitQlientRepo10currentDirEv
+
+]$ nm -A *.o | grep currentDir
+GitQlient.o:0000000000000000 W _ZNK13GitQlientRepo10currentDirEv
+

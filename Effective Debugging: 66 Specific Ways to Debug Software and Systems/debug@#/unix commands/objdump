@@ -1,0 +1,214 @@
+
+# useful links:
+# http://nickdesaulniers.github.io/blog/2013/04/03/basic-jit/
+
+]$ nm GitQlient.o | grep closeTab
+0000000000002a30 T _ZN9GitQlient8closeTabEi
+
+]$ nm -S GitQlient.o | grep closeTab
+0000000000002a30 000000000000022f T _ZN9GitQlient8closeTabEi
+
+# 0x2a30 + (0x022f + 1) = 0x2c60
+# without (0x022f + 1) we won't see last address 2c5f
+
+
+]$ objdump --start-address=0x2a30 --stop-address=0x2c60 -l -S -j .text -d GitQlient.o -M intel  
+
+
+GitQlient.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000002a30 <_ZN9GitQlient8closeTabEi>:
+_ZN9GitQlient8closeTabEi():
+/src/big_widgets/GitQlient.cpp:244
+   else
+      QLog_Warning("UI", QString("Repository at {%1} already opened. Skip adding it again.").arg(repoPath));
+}
+
+# because currentDir() is used only within the method. Starts from 0x2a30.
+
+void GitQlient::closeTab(int tabIndex)
+{
+    2a30:       55                      push   rbp
+    2a31:       48 89 e5                mov    rbp,rsp
+    2a34:       53                      push   rbx
+    2a35:       48 83 ec 58             sub    rsp,0x58
+    2a39:       48 89 7d a8             mov    QWORD PTR [rbp-0x58],rdi
+    2a3d:       89 75 a4                mov    DWORD PTR [rbp-0x5c],esi
+    2a40:       64 48 8b 04 25 28 00    mov    rax,QWORD PTR fs:0x28
+    2a47:       00 00 
+    2a49:       48 89 45 e8             mov    QWORD PTR [rbp-0x18],rax
+    2a4d:       31 c0                   xor    eax,eax
+/src/big_widgets/GitQlient.cpp:245
+   auto repoToRemove = dynamic_cast<GitQlientRepo *>(mRepos->widget(tabIndex));
+    2a4f:       48 8b 45 a8             mov    rax,QWORD PTR [rbp-0x58]
+    2a53:       48 8b 40 30             mov    rax,QWORD PTR [rax+0x30]
+    2a57:       48 89 c2                mov    rdx,rax
+    2a5a:       8b 45 a4                mov    eax,DWORD PTR [rbp-0x5c]
+    2a5d:       89 c6                   mov    esi,eax
+    2a5f:       48 89 d7                mov    rdi,rdx
+    2a62:       e8 00 00 00 00          call   2a67 <_ZN9GitQlient8closeTabEi+0x37>
+    2a67:       48 85 c0                test   rax,rax
+    2a6a:       74 1d                   je     2a89 <_ZN9GitQlient8closeTabEi+0x59>
+/src/big_widgets/GitQlient.cpp:245 (discriminator 1)
+    2a6c:       b9 00 00 00 00          mov    ecx,0x0
+    2a71:       48 8b 15 00 00 00 00    mov    rdx,QWORD PTR [rip+0x0]        # 2a78 <_ZN9GitQlient8closeTabEi+0x48>
+    2a78:       48 8b 35 00 00 00 00    mov    rsi,QWORD PTR [rip+0x0]        # 2a7f <_ZN9GitQlient8closeTabEi+0x4f>
+    2a7f:       48 89 c7                mov    rdi,rax
+    2a82:       e8 00 00 00 00          call   2a87 <_ZN9GitQlient8closeTabEi+0x57>
+    2a87:       eb 05                   jmp    2a8e <_ZN9GitQlient8closeTabEi+0x5e>
+/src/big_widgets/GitQlient.cpp:245 (discriminator 2)
+    2a89:       b8 00 00 00 00          mov    eax,0x0
+/src/big_widgets/GitQlient.cpp:245 (discriminator 4)
+    2a8e:       48 89 45 e0             mov    QWORD PTR [rbp-0x20],rax
+/src/big_widgets/GitQlient.cpp:247 (discriminator 4)
+
+   QLog_Info("UI", QString("Removing repository {%1}").arg(repoToRemove->currentDir()));
+    2a92:       e8 00 00 00 00          call   2a97 <_ZN9GitQlient8closeTabEi+0x67>
+    2a97:       48 89 c3                mov    rbx,rax
+    2a9a:       48 8d 45 d8             lea    rax,[rbp-0x28]
+    2a9e:       48 8d 35 00 00 00 00    lea    rsi,[rip+0x0]        # 2aa5 <_ZN9GitQlient8closeTabEi+0x75>
+    2aa5:       48 89 c7                mov    rdi,rax
+    2aa8:       e8 00 00 00 00          call   2aad <_ZN9GitQlient8closeTabEi+0x7d>
+    2aad:       48 8d 45 b8             lea    rax,[rbp-0x48]
+    2ab1:       48 8d 35 00 00 00 00    lea    rsi,[rip+0x0]        # 2ab8 <_ZN9GitQlient8closeTabEi+0x88>
+    2ab8:       48 89 c7                mov    rdi,rax
+    2abb:       e8 00 00 00 00          call   2ac0 <_ZN9GitQlient8closeTabEi+0x90>
+/src/big_widgets/GitQlient.cpp:247 (discriminator 2)
+    2ac0:       48 8d 45 b5             lea    rax,[rbp-0x4b]
+    2ac4:       be 20 00 00 00          mov    esi,0x20
+    2ac9:       48 89 c7                mov    rdi,rax
+    2acc:       e8 00 00 00 00          call   2ad1 <_ZN9GitQlient8closeTabEi+0xa1>
+    2ad1:       0f b6 55 b5             movzx  edx,BYTE PTR [rbp-0x4b]
+    2ad5:       48 8d 45 b6             lea    rax,[rbp-0x4a]
+    2ad9:       89 d6                   mov    esi,edx
+    2adb:       48 89 c7                mov    rdi,rax
+    2ade:       e8 00 00 00 00          call   2ae3 <_ZN9GitQlient8closeTabEi+0xb3>
+    2ae3:       48 8d 45 c0             lea    rax,[rbp-0x40]
+    2ae7:       48 8b 55 e0             mov    rdx,QWORD PTR [rbp-0x20]
+    2aeb:       48 89 d6                mov    rsi,rdx
+    2aee:       48 89 c7                mov    rdi,rax
+    2af1:       e8 00 00 00 00          call   2af6 <_ZN9GitQlient8closeTabEi+0xc6>
+    2af6:       48 8d 45 c8             lea    rax,[rbp-0x38]
+    2afa:       0f b7 4d b6             movzx  ecx,WORD PTR [rbp-0x4a]
+    2afe:       48 8d 55 c0             lea    rdx,[rbp-0x40]
+    2b02:       48 8d 75 b8             lea    rsi,[rbp-0x48]
+    2b06:       41 89 c8                mov    r8d,ecx
+    2b09:       b9 00 00 00 00          mov    ecx,0x0
+    2b0e:       48 89 c7                mov    rdi,rax
+    2b11:       e8 00 00 00 00          call   2b16 <_ZN9GitQlient8closeTabEi+0xe6>
+/src/big_widgets/GitQlient.cpp:247 (discriminator 4)
+    2b16:       48 8d 45 d0             lea    rax,[rbp-0x30]
+    2b1a:       48 8d 35 00 00 00 00    lea    rsi,[rip+0x0]        # 2b21 <_ZN9GitQlient8closeTabEi+0xf1>
+    2b21:       48 89 c7                mov    rdi,rax
+    2b24:       e8 00 00 00 00          call   2b29 <_ZN9GitQlient8closeTabEi+0xf9>
+/src/big_widgets/GitQlient.cpp:247 (discriminator 6)
+    2b29:       48 8d 4d d8             lea    rcx,[rbp-0x28]
+    2b2d:       48 8d 55 c8             lea    rdx,[rbp-0x38]
+    2b31:       48 8d 45 d0             lea    rax,[rbp-0x30]
+    2b35:       41 b9 f7 00 00 00       mov    r9d,0xf7
+    2b3b:       49 89 c8                mov    r8,rcx
+    2b3e:       48 89 d1                mov    rcx,rdx
+    2b41:       ba 02 00 00 00          mov    edx,0x2
+    2b46:       48 89 c6                mov    rsi,rax
+    2b49:       48 89 df                mov    rdi,rbx
+    2b4c:       e8 00 00 00 00          call   2b51 <_ZN9GitQlient8closeTabEi+0x121>
+/src/big_widgets/GitQlient.cpp:247 (discriminator 8)
+    2b51:       48 8d 45 d0             lea    rax,[rbp-0x30]
+    2b55:       48 89 c7                mov    rdi,rax
+    2b58:       e8 00 00 00 00          call   2b5d <_ZN9GitQlient8closeTabEi+0x12d>
+    2b5d:       48 8d 45 c8             lea    rax,[rbp-0x38]
+    2b61:       48 89 c7                mov    rdi,rax
+    2b64:       e8 00 00 00 00          call   2b69 <_ZN9GitQlient8closeTabEi+0x139>
+    2b69:       48 8d 45 c0             lea    rax,[rbp-0x40]
+    2b6d:       48 89 c7                mov    rdi,rax
+    2b70:       e8 00 00 00 00          call   2b75 <_ZN9GitQlient8closeTabEi+0x145>
+    2b75:       48 8d 45 b8             lea    rax,[rbp-0x48]
+    2b79:       48 89 c7                mov    rdi,rax
+    2b7c:       e8 00 00 00 00          call   2b81 <_ZN9GitQlient8closeTabEi+0x151>
+    2b81:       48 8d 45 d8             lea    rax,[rbp-0x28]
+    2b85:       48 89 c7                mov    rdi,rax
+    2b88:       e8 00 00 00 00          call   2b8d <_ZN9GitQlient8closeTabEi+0x15d>
+/src/big_widgets/GitQlient.cpp:249 (discriminator 8)
+
+   mCurrentRepos.remove(repoToRemove->currentDir());
+    2b8d:       48 8b 45 a8             mov    rax,QWORD PTR [rbp-0x58]
+    2b91:       48 8d 58 40             lea    rbx,[rax+0x40]
+    2b95:       48 8d 45 d8             lea    rax,[rbp-0x28]
+    2b99:       48 8b 55 e0             mov    rdx,QWORD PTR [rbp-0x20]
+    2b9d:       48 89 d6                mov    rsi,rdx
+    2ba0:       48 89 c7                mov    rdi,rax
+    2ba3:       e8 00 00 00 00          call   2ba8 <_ZN9GitQlient8closeTabEi+0x178>
+    2ba8:       48 8d 45 d8             lea    rax,[rbp-0x28]
+    2bac:       48 89 c6                mov    rsi,rax
+    2baf:       48 89 df                mov    rdi,rbx
+    2bb2:       e8 00 00 00 00          call   2bb7 <_ZN9GitQlient8closeTabEi+0x187>
+/src/big_widgets/GitQlient.cpp:249 (discriminator 2)
+    2bb7:       48 8d 45 d8             lea    rax,[rbp-0x28]
+    2bbb:       48 89 c7                mov    rdi,rax
+    2bbe:       e8 00 00 00 00          call   2bc3 <_ZN9GitQlient8closeTabEi+0x193>
+/src/big_widgets/GitQlient.cpp:251 (discriminator 2)
+   // mRepos->removeTab(tabIndex);
+   repoToRemove->close();
+    2bc3:       48 8b 45 e0             mov    rax,QWORD PTR [rbp-0x20]
+    2bc7:       48 89 c7                mov    rdi,rax
+    2bca:       e8 00 00 00 00          call   2bcf <_ZN9GitQlient8closeTabEi+0x19f>
+/src/big_widgets/GitQlient.cpp:252 (discriminator 2)
+}
+    2bcf:       90                      nop
+    2bd0:       48 8b 45 e8             mov    rax,QWORD PTR [rbp-0x18]
+    2bd4:       64 48 2b 04 25 28 00    sub    rax,QWORD PTR fs:0x28
+    2bdb:       00 00 
+    2bdd:       74 7a                   je     2c59 <_ZN9GitQlient8closeTabEi+0x229>
+    2bdf:       eb 73                   jmp    2c54 <_ZN9GitQlient8closeTabEi+0x224>
+/src/big_widgets/GitQlient.cpp:247
+   QLog_Info("UI", QString("Removing repository {%1}").arg(repoToRemove->currentDir()));
+    2be1:       48 89 c3                mov    rbx,rax
+    2be4:       48 8d 45 d0             lea    rax,[rbp-0x30]
+    2be8:       48 89 c7                mov    rdi,rax
+    2beb:       e8 00 00 00 00          call   2bf0 <_ZN9GitQlient8closeTabEi+0x1c0>
+    2bf0:       eb 03                   jmp    2bf5 <_ZN9GitQlient8closeTabEi+0x1c5>
+    2bf2:       48 89 c3                mov    rbx,rax
+/src/big_widgets/GitQlient.cpp:247 (discriminator 5)
+    2bf5:       48 8d 45 c8             lea    rax,[rbp-0x38]
+    2bf9:       48 89 c7                mov    rdi,rax
+    2bfc:       e8 00 00 00 00          call   2c01 <_ZN9GitQlient8closeTabEi+0x1d1>
+    2c01:       eb 03                   jmp    2c06 <_ZN9GitQlient8closeTabEi+0x1d6>
+/src/big_widgets/GitQlient.cpp:247
+    2c03:       48 89 c3                mov    rbx,rax
+/src/big_widgets/GitQlient.cpp:247 (discriminator 3)
+    2c06:       48 8d 45 c0             lea    rax,[rbp-0x40]
+    2c0a:       48 89 c7                mov    rdi,rax
+    2c0d:       e8 00 00 00 00          call   2c12 <_ZN9GitQlient8closeTabEi+0x1e2>
+    2c12:       48 8d 45 b8             lea    rax,[rbp-0x48]
+    2c16:       48 89 c7                mov    rdi,rax
+    2c19:       e8 00 00 00 00          call   2c1e <_ZN9GitQlient8closeTabEi+0x1ee>
+    2c1e:       eb 03                   jmp    2c23 <_ZN9GitQlient8closeTabEi+0x1f3>
+/src/big_widgets/GitQlient.cpp:247
+    2c20:       48 89 c3                mov    rbx,rax
+/src/big_widgets/GitQlient.cpp:247 (discriminator 1)
+    2c23:       48 8d 45 d8             lea    rax,[rbp-0x28]
+    2c27:       48 89 c7                mov    rdi,rax
+    2c2a:       e8 00 00 00 00          call   2c2f <_ZN9GitQlient8closeTabEi+0x1ff>
+    2c2f:       48 89 d8                mov    rax,rbx
+    2c32:       48 89 c7                mov    rdi,rax
+    2c35:       e8 00 00 00 00          call   2c3a <_ZN9GitQlient8closeTabEi+0x20a>
+/src/big_widgets/GitQlient.cpp:249
+   mCurrentRepos.remove(repoToRemove->currentDir());
+    2c3a:       48 89 c3                mov    rbx,rax
+    2c3d:       48 8d 45 d8             lea    rax,[rbp-0x28]
+    2c41:       48 89 c7                mov    rdi,rax
+    2c44:       e8 00 00 00 00          call   2c49 <_ZN9GitQlient8closeTabEi+0x219>
+    2c49:       48 89 d8                mov    rax,rbx
+    2c4c:       48 89 c7                mov    rdi,rax
+    2c4f:       e8 00 00 00 00          call   2c54 <_ZN9GitQlient8closeTabEi+0x224>
+/src/big_widgets/GitQlient.cpp:252
+}
+    2c54:       e8 00 00 00 00          call   2c59 <_ZN9GitQlient8closeTabEi+0x229>
+    2c59:       48 8b 5d f8             mov    rbx,QWORD PTR [rbp-0x8]
+    2c5d:       c9                      leave  
+    2c5e:       c3                      ret    
+    2c5f:       90                      nop
+
