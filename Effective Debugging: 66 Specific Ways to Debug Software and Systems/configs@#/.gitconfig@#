@@ -1,0 +1,21 @@
+
+[alias]
+    logdec = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ [%cd]" --decorate 
+	lognum = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ [%cd]" --decorate --numstat
+	lastsoft = reset --soft HEAD^
+	st = status
+	sts = stash save
+	stp = stash pop
+	commall = commit -S -a -m
+	comm = commit -S -m
+	commsign = commit -S -s -a -m
+	br = branch
+	ch = checkout
+	chb = checkout -b
+	currbr = !sh -c 'git branch --show-current' -
+	push = git push origin currbr
+	cp = cherry-pick
+	patch = !sh -c 'git format-patch HEAD~$1...HEAD' -
+	patch-sha = !sh -c 'git format-patch -1 $1' -
+	diff-br = !sh -c 'git diff --oneline --graph $2..$1' -
+	old-code = !sh -c 'git rev-list --all | xargs git grep $1' - 
