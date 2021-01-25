@@ -109,7 +109,6 @@ list90=("git push origin %1,src/git/GitTags.cpp,1")
 list91=("git rev-list -n 1 %1,src/git/GitTags.cpp,1")
 
 fails=0
-success=0
 errorsFile="failures.txt"
 
 rm failures.txt
@@ -145,7 +144,6 @@ for name in "${array[@]}"; do
             s=$(printf "%-$(echo "${#line}")s" "-")
             echo "${s// /-}"
             
-            success=$((success + 1))
         else
             echo -e "\"$command\" was found in $file $((foundTimes)) times, but should be $times times \n" >> $errorsFile
             fails=$((fails + 1))
