@@ -1,5 +1,14 @@
 #General stuff
-CONFIG += test qt warn_on c++ 17 c++1z
+CONFIG += test debug nostrip qt warn_on c++ 17 c++1z
+
+
+QMAKE_CXXFLAGS_DEBUG += -O0
+QMAKE_CXXFLAGS_DEBUG -= -O2
+QMAKE_CXXFLAGS_DEBUG -= -O1
+
+QMAKE_CXXFLAGS_RELEASE += -O0
+QMAKE_CXXFLAGS_RELEASE -= -O2
+QMAKE_CXXFLAGS_RELEASE -= -O1
 
 
 TARGET = GitQlient
