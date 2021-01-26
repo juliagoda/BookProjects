@@ -2,16 +2,28 @@
 #include <QFontDatabase>
 #include <QIcon>
 #include <QTimer>
+#include <QtTest>
 
 #include <GitQlient.h>
 #include <GitQlientSettings.h>
 
 #include <QLogger.h>
 
+#include "tests/TestAGitProcess.h"
+
 using namespace QLogger;
 
 int main(int argc, char *argv[])
 {
+    int status = 0;
+
+       auto ASSERT_TEST = [&status, argc, argv](QObject* obj) {
+         status |= QTest::qExec(obj, argc, argv);
+         delete obj;
+       };
+
+   ASSERT_TEST(new TestAGitProcess(QString("yourProjectPath")));
+
    qputenv("QT_AUTO_SCREEN_SCALE_FACTOR", "1");
 
    QApplication app(argc, argv);

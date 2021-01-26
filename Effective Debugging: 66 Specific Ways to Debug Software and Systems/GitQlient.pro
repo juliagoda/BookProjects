@@ -1,12 +1,12 @@
 #General stuff
-CONFIG += qt warn_on c++ 17 c++1z
-
+CONFIG += test qt warn_on c++ 17 c++1z
 
 
 TARGET = GitQlient
-QT += widgets core network svg
+QT += core network svg
 DEFINES += QT_DEPRECATED_WARNINGS
 QMAKE_LFLAGS += -no-pie
+
 
 #Default rules for deployment.
 qnx: target.path = $$(HOME)/$${TARGET}/bin

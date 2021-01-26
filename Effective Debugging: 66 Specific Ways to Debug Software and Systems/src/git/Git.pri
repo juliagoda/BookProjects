@@ -39,3 +39,18 @@ SOURCES += \
     $$PWD/GitSubmodules.cpp \
     $$PWD/GitSyncProcess.cpp \
     $$PWD/GitTags.cpp
+
+test {
+    message(Configuring test build...)
+
+    TEMPLATE = app
+    TARGET = GitQlientTests
+
+    QT += testlib
+
+    HEADERS += \
+        $$PWD/tests/TestAGitProcess.h
+
+    SOURCES += \
+        $$PWD/tests/TestAGitProcess.cpp
+}
