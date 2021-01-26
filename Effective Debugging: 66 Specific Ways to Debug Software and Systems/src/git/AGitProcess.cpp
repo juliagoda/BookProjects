@@ -1,5 +1,6 @@
 #include "AGitProcess.h"
 
+#include <QtGlobal>
 #include <QTemporaryFile>
 #include <QTextStream>
 #include <GitQlientSettings.h>
@@ -137,11 +138,15 @@ bool AGitProcess::execute(const QString &command)
    mCommand = command;
 
    auto processStarted = false;
-   auto arguments = splitArgList(mCommand);
+   auto args = splitArgList(mCommand);
 
-   if (!arguments.isEmpty())
+   // hoping that something hasn't unintentionally changed
+   Q_ASSERT(mCommand == command);
+
+   if (!args.isEmpty())
    {
       QStringList env = QProcess::systemEnvironment();
+      Q_ASSERT(!env.isEmpty());
       env << "GIT_TRACE=0"; // avoid choking on debug traces
       env << "GIT_FLUSH=0"; // skip the fflush() in 'git log'
 
@@ -149,8 +154,8 @@ bool AGitProcess::execute(const QString &command)
       const auto gitAlternative = settings.globalValue("gitLocation", "").toString();
 
       setEnvironment(env);
-      setProgram(gitAlternative.isEmpty() ? arguments.takeFirst() : gitAlternative);
-      setArguments(arguments);
+      setProgram(gitAlternative.isEmpty() ? args.takeFirst() : gitAlternative);
+      setArguments(args);
       start();
 
       processStarted = waitForStarted();
