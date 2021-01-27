@@ -14,4 +14,8 @@ private slots:
     void testExecGitHelp();
     void testExecGitShowRef();
     void testExecGitConfigList();
+    void testExecGitEmpty();
+    void testExecGitNotProper();
+    void testExecGitNotProperLong();
+    void testExecNotGit();
 }; 

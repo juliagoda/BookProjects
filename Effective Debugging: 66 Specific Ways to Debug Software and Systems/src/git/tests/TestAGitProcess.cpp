@@ -23,4 +23,24 @@ void TestAGitProcess::testExecGitConfigList()
     QCOMPARE(execute("git config --local --list"), true);
 }
 
+void TestAGitProcess::testExecGitEmpty()
+{
+    QCOMPARE(execute(""), false);
+}
+
+void TestAGitProcess::testExecGitNotProper()
+{
+    QCOMPARE(execute("badbad"), false);
+}
+
+void TestAGitProcess::testExecGitNotProperLong()
+{
+    QCOMPARE(execute("badbadfafaffsfagasgadgfadgfagesagsagshgrsgeagesghrshwsgeagsegeghershesgefeasghrshshsdgshdfhfehjbfhwejbgfhebgf"), false);
+}
+
+void TestAGitProcess::testExecNotGit()
+{
+    QCOMPARE(execute("ls -l"), false);
+}
+
 //QTEST_MAIN(TestAGitProcess)
